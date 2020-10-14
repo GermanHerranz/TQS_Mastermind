@@ -4,33 +4,30 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class MasterMind {
-	String colors []= {"red","blue","green","yellow","orange","purple"};
-	String user_color[]= {"0","0","0","0","0"};
+	static String colors []= {"red","blue","green","yellow","orange","purple"};
+	static String user_color[]= {"0","0","0","0","0"};
 	
-	void read_parameters(){
+	static void read_parameters(){
 		Scanner in = new Scanner(System.in);
 		String color;
 		boolean find=false;
 		int j=0;
-		for(int i=0; i<6; i++) {
+		for(int i=0; i<5; i++) {
 			
 			color = in.nextLine();
 			user_color[i] =color; 
 		}
 		
 		in.close();
-		while(j<6 &&  !find) {
+		while(j<5 &&  !find) {
 		  
 		  find=check_parameters(user_color[j]);
 		  
 		  j++;
 		}
-		
-		
-		
 	}
 	
-	boolean check_parameters(String color) {
+	static boolean check_parameters(String color) {
 		
 		boolean find=false;
 
@@ -39,4 +36,8 @@ public class MasterMind {
 		}
 		return find;
 	}
+
+	public static void main(String[] args) {
+		read_parameters();
+	  }
 }
