@@ -10,8 +10,6 @@ public class MasterMind {
 	static void read_parameters(){
 		Scanner in = new Scanner(System.in);
 		String color;
-		boolean find=false;
-		int j=0;
 		for(int i=0; i<5; i++) {
 			
 			color = in.nextLine();
@@ -19,21 +17,14 @@ public class MasterMind {
 		}
 		
 		in.close();
-		while(j<5 &&  !find) {
-		  
-		  find=check_parameters(user_color[j]);
-		  
-		  j++;
-		}
+		
 	}
-	
+
 	static boolean check_parameters(String color) {
 		
-		boolean find=false;
+		boolean find=true;
 
-		if(Arrays.asList(colors).contains(color)) {
-			find=true;
-		}
+		
 		return find;
 	}
 
