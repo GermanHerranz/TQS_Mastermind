@@ -24,7 +24,9 @@ public class MasterMind {
 		
 		boolean find=true;
 
-		
+		if(Arrays.asList(colors).contains(color)) {
+			find=false;
+		}
 		return find;
 	}
 
