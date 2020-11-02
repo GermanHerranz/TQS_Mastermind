@@ -26,7 +26,6 @@ public class testMasterMind {
 		mockReadParameters.read_parameters(p1);
 		
 		boolean value0=MasterMind.check_parameters(p1.get_usercolorPosition(0));
-		System.out.println(p1.get_usercolorPosition(0));
 		assertTrue(value0);
 		
 		boolean value1=MasterMind.check_parameters(p1.get_usercolorPosition(1));
@@ -174,8 +173,22 @@ public class testMasterMind {
 		mockReadParameters.colors[4] = "orange!";
 		mockReadParameters.read_parameters(p1);
 		
-		boolean res=MasterMind.Play();
+		boolean res=MasterMind.Play(p1,p2);
 		assertFalse(res);
+		
+		
+		mockReadParameters.colors = new String[5];
+		mockReadParameters.colors[0] = "red";
+		mockReadParameters.colors[1] = "yellow";
+		mockReadParameters.colors[2] = "purple";
+		mockReadParameters.colors[3] = "red";
+		mockReadParameters.colors[4] = "orange";
+		mockReadParameters.read_parameters(p1);
+		
+		boolean res1=MasterMind.Play(p1, p2);
+		assertTrue(res1);
+		
+		
 		
 	}
 	

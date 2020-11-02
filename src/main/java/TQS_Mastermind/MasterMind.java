@@ -6,8 +6,8 @@ import java.util.Scanner;
 public class MasterMind {
 	static String colors []= {"red","blue","green","yellow","orange","purple"};
 	static String user_color[]= {"0","0","0","0","0"};
-	static Player p1= new Player(0);
-	static Player p2=new Player(1);
+	static Player player1= new Player(0);
+	static Player player2=new Player(1);
 	static int turn=0;
 	static int numPlays=12;
 	
@@ -18,16 +18,23 @@ public class MasterMind {
 			
 			color = in.nextLine();
 			
-			p1.set_usercolorPosition (i, color); 
+			player1.set_usercolorPosition (i, color); 
 		}
 		
 		in.close();
 		
 	}
 	
-	static boolean Play() {
-		
-		return true;
+	static boolean Play(Player p1, Player p2) {
+		boolean find=true;
+		int i=0;
+		if(p1.user_color.length == 5) {
+			while(find && i<5) {
+				find=check_parameters(p1.get_usercolorPosition(i));
+				i=i+1;
+			}
+		}
+		return find;
 		
 	}
 	static int turn(int t) {
