@@ -137,6 +137,12 @@ public class testMasterMind {
 		int res1=MasterMind.turn(1);
 		assertEquals(res1, 0);
 		
+		int res2=MasterMind.turn(-1);
+		assertEquals(res2, 0);
+		
+		int res3=MasterMind.turn(2);
+		assertEquals(res3, 0);
+		
 		
 		
 	}

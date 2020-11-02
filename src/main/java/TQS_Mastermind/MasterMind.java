@@ -8,6 +8,7 @@ public class MasterMind {
 	static String user_color[]= {"0","0","0","0","0"};
 	static Player p1= new Player(0);
 	static Player p2=new Player(1);
+	static int turn=0;
 	
 	static void read_parameters(){
 		Scanner in = new Scanner(System.in);
@@ -27,8 +28,14 @@ public class MasterMind {
 		
 		
 	}
-	static int turn(int id) {
-		return 0;
+	static int turn(int t) {
+		if(t==0) {
+			turn=1;
+		}
+		else if(t==1){
+			turn=0;
+		}
+		return turn;
 	}
 	static boolean check_parameters(String color) {
 		
