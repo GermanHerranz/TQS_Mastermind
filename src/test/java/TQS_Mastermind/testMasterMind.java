@@ -186,7 +186,34 @@ public class testMasterMind {
 		mockReadParameters.read_parameters(p1);
 		
 		boolean res1=MasterMind.Play(p1, p2);
+		
+		
 		assertTrue(res1);
+		
+		mockReadParameters.colors = new String[5];
+		mockReadParameters.colors[0] = "red";
+		mockReadParameters.colors[1] = "yellow";
+		mockReadParameters.colors[2] = "black";
+		mockReadParameters.colors[3] = " ";
+		mockReadParameters.colors[4] = "orange!";
+		mockReadParameters.read_parameters(p2);
+		
+		boolean res2=MasterMind.Play(p1,p2);
+		assertFalse(res2);
+		
+		
+		mockReadParameters.colors = new String[5];
+		mockReadParameters.colors[0] = "red";
+		mockReadParameters.colors[1] = "yellow";
+		mockReadParameters.colors[2] = "purple";
+		mockReadParameters.colors[3] = "red";
+		mockReadParameters.colors[4] = "orange";
+		mockReadParameters.read_parameters(p2);
+		
+		boolean res3=MasterMind.Play(p1, p2);
+		
+		
+		assertTrue(res3);
 		
 		
 		

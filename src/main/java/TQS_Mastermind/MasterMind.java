@@ -28,11 +28,44 @@ public class MasterMind {
 	static boolean Play(Player p1, Player p2) {
 		boolean find=true;
 		int i=0;
-		if(p1.user_color.length == 5) {
-			while(find && i<5) {
-				find=check_parameters(p1.get_usercolorPosition(i));
-				i=i+1;
+		if(turn==0) {
+			if(numPlays==12) {
+				if(p1.user_color.length == 5) {
+					while(find && i<5) {
+						find=check_parameters(p1.get_usercolorPosition(i));
+						i=i+1;
+					}
+					if(find) {
+						turn(turn);
+					}
+					else {
+						System.out.println("Player1: Upps the secuence was wrong! Enter a new one with the accepted colors: red, blue, orange, green, yellow or purple");
+					}
+				}
+				else {
+					System.out.println("Player1: Upps!! Enter 5 colors please!!");
+				}
 			}
+		}
+		else if(turn==1) {
+			if(p2.user_color.length == 5) {
+				while(find && i<5) {
+					find=check_parameters(p2.get_usercolorPosition(i));
+					i=i+1;
+				}
+				if(find) {
+					turn(turn);
+				}
+				else {
+					System.out.println("Player2: Upps the secuence was wrong! Enter a new one with the accepted colors: red, blue, orange, green, yellow or purple");
+				}
+				
+			}
+			
+			else {
+				System.out.println("Player2: Upps!! Enter 5 colors please!!");
+			}
+			
 		}
 		return find;
 		
@@ -64,6 +97,7 @@ public class MasterMind {
 
 	public static void main(String[] args) {
 		read_parameters();
-		turn(0);
+		Play(player1,player2);
+		
 	  }
 }
