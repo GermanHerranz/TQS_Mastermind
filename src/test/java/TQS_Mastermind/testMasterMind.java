@@ -150,10 +150,14 @@ public class testMasterMind {
 	@Test
 	public void testNumPlays() {
 		int res=MasterMind.numPlays();
-		assertEquals(res, 1);
+		assertEquals(res, 11);
 		
+		int res1=MasterMind.numPlays();
+		assertEquals(res1, 10);
 		
-		
+		int res2=MasterMind.numPlays();
+		assertEquals(res2, 9);
+			
 		
 	}
 	
