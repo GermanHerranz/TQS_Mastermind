@@ -13,7 +13,7 @@ public class testMasterMind {
 	
 	@Test
 	public void testRead_Parameters() {
-		MasterMind res= new MasterMind();
+		
 		MockReadParameters mockReadParameters = new MockReadParameters();
 		Player p1 = new Player(0);
 		Player p2 = new Player(1);
@@ -25,11 +25,11 @@ public class testMasterMind {
 		mockReadParameters.colors[4] = "orange!";
 		mockReadParameters.read_parameters(p1);
 		
-		boolean value0=res.check_parameters(p1.get_usercolorPosition(0));
+		boolean value0=MasterMind.check_parameters(p1.get_usercolorPosition(0));
 		System.out.println(p1.get_usercolorPosition(0));
 		assertTrue(value0);
 		
-		boolean value1=res.check_parameters(p1.get_usercolorPosition(1));
+		boolean value1=MasterMind.check_parameters(p1.get_usercolorPosition(1));
 		assertTrue(value1);
 		
 		boolean value2=MasterMind.check_parameters(p1.get_usercolorPosition(2));
@@ -60,9 +60,9 @@ public class testMasterMind {
 	
 	@Test
 	public void testCheck_Parameters() {
-		MasterMind res= new MasterMind();
 		
-		boolean value0=res.check_parameters("yellow ");
+		
+		boolean value0=MasterMind.check_parameters("yellow ");
 		assertFalse(value0);
 		
 		boolean value=MasterMind.check_parameters("red");
@@ -125,6 +125,18 @@ public class testMasterMind {
 		
 		p.set_usercolorPosition(-1, "purple");
 		assertEquals(p.get_usercolorPosition(-1), "-1");
+		
+		
+	}
+	
+	@Test
+	public void testTurn() {
+		int res=MasterMind.turn(0);
+		assertEquals(res, 1);
+		
+		int res1=MasterMind.turn(1);
+		assertEquals(res1, 0);
+		
 		
 		
 	}
