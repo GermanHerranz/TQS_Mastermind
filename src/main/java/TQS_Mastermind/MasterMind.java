@@ -19,6 +19,10 @@ public class MasterMind {
 		in.close();
 		
 	}
+	
+	static void Play() {
+		
+	}
 
 	static boolean check_parameters(String color) {
 		
