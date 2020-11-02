@@ -9,6 +9,7 @@ public class MasterMind {
 	static Player p1= new Player(0);
 	static Player p2=new Player(1);
 	static int turn=0;
+	static int numPlays=0;
 	
 	static void read_parameters(){
 		Scanner in = new Scanner(System.in);
@@ -37,6 +38,11 @@ public class MasterMind {
 		}
 		return turn;
 	}
+	
+	static int numPlays() {
+		return 0;
+	}
+	
 	static boolean check_parameters(String color) {
 		
 		boolean find=false;

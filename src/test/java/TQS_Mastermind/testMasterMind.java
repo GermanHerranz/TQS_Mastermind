@@ -147,6 +147,16 @@ public class testMasterMind {
 		
 	}
 	
+	@Test
+	public void testNumPlays() {
+		int res=MasterMind.numPlays();
+		assertEquals(res, 1);
+		
+		
+		
+		
+	}
+	
 	
 	
 }
