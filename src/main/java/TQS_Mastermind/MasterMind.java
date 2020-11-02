@@ -26,10 +26,10 @@ public class MasterMind {
 
 	static boolean check_parameters(String color) {
 		
-		boolean find=true;
+		boolean find=false;
 
 		if(Arrays.asList(colors).contains(color)) {
-			find=false;
+			find=true;
 		}
 		return find;
 	}

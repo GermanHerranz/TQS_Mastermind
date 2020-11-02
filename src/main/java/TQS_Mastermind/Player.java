@@ -3,7 +3,7 @@ package TQS_Mastermind;
 
 public class Player {
 	int id_player;
-	String user_color[];
+	String user_color[]= {};
 	
 	Player(int id) {
 		id_player = id;
@@ -19,14 +19,14 @@ public class Player {
 	}
 	
 	String get_usercolorPosition (int position) {
-		if (position >= 0 && position < 5 && id_player==0)
+		if (position >= 0 && position < user_color.length && id_player==0)
 			return user_color[position];
 		else
 			return "-1";
 	}
 	
 	void set_usercolorPosition (int position, String color) {
-		if (id_player == 0)
+		if (id_player == 0 && position >= 0 && position < user_color.length)
 			user_color[position] = color;
 	}
 }

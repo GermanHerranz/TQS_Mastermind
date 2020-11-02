@@ -9,7 +9,8 @@ public class MockReadParameters {
 	void read_parameters(Player player){
 	
 		for(int i=0; i<5; i++) {
-			player.user_color[i] = colors[i]; 
+			player.set_usercolorPosition (i, colors[i]);
+			
 		}		
 	}
 }
