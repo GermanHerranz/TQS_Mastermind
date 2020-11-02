@@ -25,8 +25,9 @@ public class MasterMind {
 		
 	}
 	
-	static void Play() {
+	static boolean Play() {
 		
+		return true;
 		
 	}
 	static int turn(int t) {

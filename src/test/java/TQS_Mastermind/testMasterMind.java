@@ -161,6 +161,24 @@ public class testMasterMind {
 		
 	}
 	
+	@Test
+	public void testPlay() {
+		MockReadParameters mockReadParameters = new MockReadParameters();
+		Player p1 = new Player(0);
+		Player p2 = new Player(1);
+		mockReadParameters.colors = new String[5];
+		mockReadParameters.colors[0] = "red";
+		mockReadParameters.colors[1] = "yellow";
+		mockReadParameters.colors[2] = "black";
+		mockReadParameters.colors[3] = " ";
+		mockReadParameters.colors[4] = "orange!";
+		mockReadParameters.read_parameters(p1);
+		
+		boolean res=MasterMind.Play();
+		assertFalse(res);
+		
+	}
+	
 	
 	
 }
