@@ -39,7 +39,7 @@ public class MasterMind {
 						turn(turn);
 					}
 					else {
-						System.out.println("Player1: Upps the secuence was wrong! Enter a new one with the accepted colors: red, blue, orange, green, yellow or purple");
+						System.out.println("Player1: Upps the sequence was wrong! Enter a new one with the accepted colors: red, blue, orange, green, yellow or purple");
 					}
 				}
 				else {
@@ -57,7 +57,7 @@ public class MasterMind {
 					turn(turn);
 				}
 				else {
-					System.out.println("Player2: Upps the secuence was wrong! Enter a new one with the accepted colors: red, blue, orange, green, yellow or purple");
+					System.out.println("Player2: Upps the sequence was wrong! Enter a new one with the accepted colors: red, blue, orange, green, yellow or purple");
 				}
 				
 			}
