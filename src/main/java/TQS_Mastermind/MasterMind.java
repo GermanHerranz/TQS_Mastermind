@@ -55,34 +55,36 @@ public class MasterMind {
 	}
 	
 	static boolean Player2(Player p) {
-		return true;
+		boolean find=false;
+		int i=0;
+		if(p.user_color.length == 5) {
+			while(!find && i<5) {
+				find=!check_parameters(p.get_usercolorPosition(i));
+				i=i+1;
+			}
+			if(!find) {
+				turn(turn);
+			}
+			else {
+				System.out.println("Player2: Upps the sequence was wrong! Enter a new one with the accepted colors: red, blue, orange, green, yellow or purple");
+			}
+			
+		}
+		
+		else {
+			System.out.println("Player2: Upps!! Enter 5 colors please!!");
+		}
+		
+		return find;
 	}
 	
 	static boolean Play(Player p1, Player p2) {
 		boolean find=false;
-		int i=0;
 		if(turn==0) {
 			find=Player1(p1);
 		}
 		else if(turn==1) {
-			if(p2.user_color.length == 5) {
-				while(!find && i<5) {
-					find=!check_parameters(p2.get_usercolorPosition(i));
-					i=i+1;
-				}
-				if(!find) {
-					turn(turn);
-				}
-				else {
-					System.out.println("Player2: Upps the sequence was wrong! Enter a new one with the accepted colors: red, blue, orange, green, yellow or purple");
-				}
-				
-			}
-			
-			else {
-				System.out.println("Player2: Upps!! Enter 5 colors please!!");
-			}
-			
+			find=Player2(p2);
 		}
 		return find;
 		
