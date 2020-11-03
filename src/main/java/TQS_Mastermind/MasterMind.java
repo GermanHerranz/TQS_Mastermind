@@ -29,6 +29,10 @@ public class MasterMind {
 		
 	}
 	
+	static boolean Player1(Player p) {
+		return true;
+	}
+	
 	static boolean Play(Player p1, Player p2) {
 		boolean find=true;
 		int i=0;

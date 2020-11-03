@@ -12,7 +12,7 @@ public class testMasterMind {
     }
 	
 	@Test
-	public void testRead_Parameters() {
+	public void test_Read_Parameters() {
 		MasterMind m= new MasterMind();
 		MockReadParameters mockReadParameters = new MockReadParameters();
 		Player p1 = new Player(0);
@@ -58,7 +58,7 @@ public class testMasterMind {
 	}
 	
 	@Test
-	public void testCheck_Parameters() {
+	public void test_Check_Parameters() {
 		MasterMind m= new MasterMind();
 		
 		boolean value0=m.check_parameters("yellow ");
@@ -111,7 +111,7 @@ public class testMasterMind {
 	}
 	
 	@Test
-	public void testSetAndGetPlayer() {
+	public void test_SetAndGetPlayer() {
 		Player p= new Player(0);
 		p.set_usercolorPosition(0, "red");
 		assertEquals(p.get_usercolorPosition(0), "red");
@@ -129,7 +129,7 @@ public class testMasterMind {
 	}
 	
 	@Test
-	public void testTurn() {
+	public void test_Turn() {
 		int res=MasterMind.turn(0);
 		assertEquals(res, 1);
 		
@@ -147,7 +147,7 @@ public class testMasterMind {
 	}
 	
 	@Test
-	public void testNumPlays() {
+	public void test_NumPlays() {
 		MasterMind m= new MasterMind();
 		int res=m.numPlays();
 		assertEquals(res, 11);
@@ -160,9 +160,38 @@ public class testMasterMind {
 			
 		
 	}
-	
 	@Test
-	public void testPlay() {
+	public void test_Player1() {
+		MasterMind m= new MasterMind();
+		
+		MockReadParameters mockReadParameters = new MockReadParameters();
+		Player p1 = new Player(0);
+		mockReadParameters.colors = new String[5];
+		mockReadParameters.colors[0] = "red";
+		mockReadParameters.colors[1] = "yellow";
+		mockReadParameters.colors[2] = "black";
+		mockReadParameters.colors[3] = " ";
+		mockReadParameters.colors[4] = "orange!";
+		mockReadParameters.read_parameters(p1);
+		
+		boolean res=m.Player1(p1);
+		assertFalse(res);
+		
+		
+		mockReadParameters.colors = new String[5];
+		mockReadParameters.colors[0] = "red";
+		mockReadParameters.colors[1] = "yellow";
+		mockReadParameters.colors[2] = "purple";
+		mockReadParameters.colors[3] = "red";
+		mockReadParameters.colors[4] = "orange";
+		mockReadParameters.read_parameters(p1);
+		
+		boolean res1=m.Player1(p1);
+		assertTrue(res1);
+		
+	}
+	@Test
+	public void test_Play() {
 		MasterMind m= new MasterMind();
 		MockReadParameters mockReadParameters = new MockReadParameters();
 		Player p1 = new Player(0);
