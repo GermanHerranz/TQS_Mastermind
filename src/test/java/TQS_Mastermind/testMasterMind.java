@@ -175,7 +175,7 @@ public class testMasterMind {
 		mockReadParameters.read_parameters(p1);
 		
 		boolean res=m.Player1(p1);
-		assertFalse(res);
+		assertTrue(res);
 		
 		
 		mockReadParameters.colors = new String[5];
@@ -187,8 +187,37 @@ public class testMasterMind {
 		mockReadParameters.read_parameters(p1);
 		
 		boolean res1=m.Player1(p1);
-		assertTrue(res1);
+		assertFalse(res1);
 		
+	}
+	@Test
+	public void test_Player2() {
+		MasterMind m= new MasterMind();
+		
+		MockReadParameters mockReadParameters = new MockReadParameters();
+		Player p2 = new Player(1);
+		mockReadParameters.colors = new String[5];
+		mockReadParameters.colors[0] = "red";
+		mockReadParameters.colors[1] = "yellow";
+		mockReadParameters.colors[2] = "black";
+		mockReadParameters.colors[3] = " ";
+		mockReadParameters.colors[4] = "orange!";
+		mockReadParameters.read_parameters(p2);
+		
+		boolean res=m.Player2(p2);
+		assertTrue(res);
+		
+		
+		mockReadParameters.colors = new String[5];
+		mockReadParameters.colors[0] = "red";
+		mockReadParameters.colors[1] = "yellow";
+		mockReadParameters.colors[2] = "purple";
+		mockReadParameters.colors[3] = "red";
+		mockReadParameters.colors[4] = "orange";
+		mockReadParameters.read_parameters(p2);
+		
+		boolean res1=m.Player2(p2);
+		assertFalse(res1);
 	}
 	@Test
 	public void test_Play() {
@@ -205,7 +234,7 @@ public class testMasterMind {
 		mockReadParameters.read_parameters(p1);
 		
 		boolean res=m.Play(p1,p2);
-		assertFalse(res);
+		assertTrue(res);
 		
 		
 		mockReadParameters.colors = new String[5];
@@ -219,7 +248,7 @@ public class testMasterMind {
 		boolean res1=m.Play(p1, p2);
 		
 		
-		assertTrue(res1);
+		assertFalse(res1);
 		
 		mockReadParameters.colors = new String[5];
 		mockReadParameters.colors[0] = "red";
@@ -230,7 +259,7 @@ public class testMasterMind {
 		mockReadParameters.read_parameters(p2);
 		
 		boolean res2=m.Play(p1,p2);
-		assertFalse(res2);
+		assertTrue(res2);
 		
 		
 		mockReadParameters.colors = new String[5];
@@ -244,7 +273,7 @@ public class testMasterMind {
 		boolean res3=m.Play(p1, p2);
 		
 		
-		assertTrue(res3);
+		assertFalse(res3);
 		
 		
 		

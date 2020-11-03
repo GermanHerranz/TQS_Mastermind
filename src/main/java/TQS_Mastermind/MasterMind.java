@@ -30,38 +30,47 @@ public class MasterMind {
 	}
 	
 	static boolean Player1(Player p) {
+		boolean find=false;
+		int i=0;
+		
+		if(numPlays==12) {
+			if(p.user_color.length == 5) {
+				while(!find && i<5) {
+					find=!check_parameters(p.get_usercolorPosition(i)); //if the color is correct return true
+					i=i+1;
+				}
+				if(!find) {
+					turn(turn);
+				}
+				else {
+					System.out.println("Player1: Upps the sequence was wrong! Enter a new one with the accepted colors: red, blue, orange, green, yellow or purple");
+				}
+			}
+			else {
+				System.out.println("Player1: Upps!! Enter 5 colors please!!");
+			}
+		}
+		
+		return find;
+	}
+	
+	static boolean Player2(Player p) {
 		return true;
 	}
 	
 	static boolean Play(Player p1, Player p2) {
-		boolean find=true;
+		boolean find=false;
 		int i=0;
 		if(turn==0) {
-			if(numPlays==12) {
-				if(p1.user_color.length == 5) {
-					while(find && i<5) {
-						find=check_parameters(p1.get_usercolorPosition(i));
-						i=i+1;
-					}
-					if(find) {
-						turn(turn);
-					}
-					else {
-						System.out.println("Player1: Upps the sequence was wrong! Enter a new one with the accepted colors: red, blue, orange, green, yellow or purple");
-					}
-				}
-				else {
-					System.out.println("Player1: Upps!! Enter 5 colors please!!");
-				}
-			}
+			find=Player1(p1);
 		}
 		else if(turn==1) {
 			if(p2.user_color.length == 5) {
-				while(find && i<5) {
-					find=check_parameters(p2.get_usercolorPosition(i));
+				while(!find && i<5) {
+					find=!check_parameters(p2.get_usercolorPosition(i));
 					i=i+1;
 				}
-				if(find) {
+				if(!find) {
 					turn(turn);
 				}
 				else {
