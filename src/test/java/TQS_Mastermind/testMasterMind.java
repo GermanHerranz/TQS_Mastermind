@@ -13,7 +13,7 @@ public class testMasterMind {
 	
 	@Test
 	public void testRead_Parameters() {
-		
+		MasterMind m= new MasterMind();
 		MockReadParameters mockReadParameters = new MockReadParameters();
 		Player p1 = new Player(0);
 		Player p2 = new Player(1);
@@ -25,88 +25,88 @@ public class testMasterMind {
 		mockReadParameters.colors[4] = "orange!";
 		mockReadParameters.read_parameters(p1);
 		
-		boolean value0=MasterMind.check_parameters(p1.get_usercolorPosition(0));
+		boolean value0=m.check_parameters(p1.get_usercolorPosition(0));
 		assertTrue(value0);
 		
-		boolean value1=MasterMind.check_parameters(p1.get_usercolorPosition(1));
+		boolean value1=m.check_parameters(p1.get_usercolorPosition(1));
 		assertTrue(value1);
 		
-		boolean value2=MasterMind.check_parameters(p1.get_usercolorPosition(2));
+		boolean value2=m.check_parameters(p1.get_usercolorPosition(2));
 		assertFalse(value2);
 		
-		boolean value3=MasterMind.check_parameters(p1.get_usercolorPosition(3));
+		boolean value3=m.check_parameters(p1.get_usercolorPosition(3));
 		assertFalse(value3);
 		
-		boolean value4=MasterMind.check_parameters(p1.get_usercolorPosition(2));
+		boolean value4=m.check_parameters(p1.get_usercolorPosition(2));
 		assertFalse(value4);
 		
-		boolean value5=MasterMind.check_parameters(p1.get_usercolorPosition(-5));
+		boolean value5=m.check_parameters(p1.get_usercolorPosition(-5));
 		assertFalse(value5);
 		
-		boolean value6=MasterMind.check_parameters(p1.get_usercolorPosition(6));
+		boolean value6=m.check_parameters(p1.get_usercolorPosition(6));
 		assertFalse(value6);
 		
-		boolean value7=MasterMind.check_parameters(p1.get_usercolorPosition(-1));
+		boolean value7=m.check_parameters(p1.get_usercolorPosition(-1));
 		assertFalse(value7);
 		
-		boolean value8=MasterMind.check_parameters(p1.get_usercolorPosition(5));
+		boolean value8=m.check_parameters(p1.get_usercolorPosition(5));
 		assertFalse(value8);
 		
-		boolean value9=MasterMind.check_parameters(p2.get_usercolorPosition(3));
+		boolean value9=m.check_parameters(p2.get_usercolorPosition(3));
 		assertFalse(value9);
 		
 	}
 	
 	@Test
 	public void testCheck_Parameters() {
+		MasterMind m= new MasterMind();
 		
-		
-		boolean value0=MasterMind.check_parameters("yellow ");
+		boolean value0=m.check_parameters("yellow ");
 		assertFalse(value0);
 		
-		boolean value=MasterMind.check_parameters("red");
+		boolean value=m.check_parameters("red");
 		assertTrue(value);
 		
-		boolean value2=MasterMind.check_parameters("black");
+		boolean value2=m.check_parameters("black");
 		assertFalse(value2);
 		
-		boolean value3=MasterMind.check_parameters("1");
+		boolean value3=m.check_parameters("1");
 		assertFalse(value3);
 		
-		boolean value4=MasterMind.check_parameters("RED");
+		boolean value4=m.check_parameters("RED");
 		assertFalse(value4);
 		
-		boolean value5=MasterMind.check_parameters("Red");
+		boolean value5=m.check_parameters("Red");
 		assertFalse(value5);
 		
-		boolean value6=MasterMind.check_parameters(" ");
+		boolean value6=m.check_parameters(" ");
 		assertFalse(value6);
 		
-		boolean value7=MasterMind.check_parameters("!");
+		boolean value7=m.check_parameters("!");
 		assertFalse(value7);
 		
-		boolean value8=MasterMind.check_parameters("red!");
+		boolean value8=m.check_parameters("red!");
 		assertFalse(value8);
 		
-		boolean value9=MasterMind.check_parameters("red yellow");
+		boolean value9=m.check_parameters("red yellow");
 		assertFalse(value9);
 		
-		boolean value10=MasterMind.check_parameters("red, yellow");
+		boolean value10=m.check_parameters("red, yellow");
 		assertFalse(value10);
 		
-		boolean value11=MasterMind.check_parameters("purple");
+		boolean value11=m.check_parameters("purple");
 		assertTrue(value11);
 		
-		boolean value12=MasterMind.check_parameters("yellow");
+		boolean value12=m.check_parameters("yellow");
 		assertTrue(value12);
 		
-		boolean value13=MasterMind.check_parameters("orange");
+		boolean value13=m.check_parameters("orange");
 		assertTrue(value13);
 		
-		boolean value14=MasterMind.check_parameters("blue");
+		boolean value14=m.check_parameters("blue");
 		assertTrue(value14);
 		
-		boolean value15=MasterMind.check_parameters("green");
+		boolean value15=m.check_parameters("green");
 		assertTrue(value15);
 	}
 	
@@ -148,13 +148,14 @@ public class testMasterMind {
 	
 	@Test
 	public void testNumPlays() {
-		int res=MasterMind.numPlays();
+		MasterMind m= new MasterMind();
+		int res=m.numPlays();
 		assertEquals(res, 11);
 		
-		int res1=MasterMind.numPlays();
+		int res1=m.numPlays();
 		assertEquals(res1, 10);
 		
-		int res2=MasterMind.numPlays();
+		int res2=m.numPlays();
 		assertEquals(res2, 9);
 			
 		
@@ -162,6 +163,7 @@ public class testMasterMind {
 	
 	@Test
 	public void testPlay() {
+		MasterMind m= new MasterMind();
 		MockReadParameters mockReadParameters = new MockReadParameters();
 		Player p1 = new Player(0);
 		Player p2 = new Player(1);
@@ -173,7 +175,7 @@ public class testMasterMind {
 		mockReadParameters.colors[4] = "orange!";
 		mockReadParameters.read_parameters(p1);
 		
-		boolean res=MasterMind.Play(p1,p2);
+		boolean res=m.Play(p1,p2);
 		assertFalse(res);
 		
 		
@@ -185,7 +187,7 @@ public class testMasterMind {
 		mockReadParameters.colors[4] = "orange";
 		mockReadParameters.read_parameters(p1);
 		
-		boolean res1=MasterMind.Play(p1, p2);
+		boolean res1=m.Play(p1, p2);
 		
 		
 		assertTrue(res1);
@@ -198,7 +200,7 @@ public class testMasterMind {
 		mockReadParameters.colors[4] = "orange!";
 		mockReadParameters.read_parameters(p2);
 		
-		boolean res2=MasterMind.Play(p1,p2);
+		boolean res2=m.Play(p1,p2);
 		assertFalse(res2);
 		
 		
@@ -210,7 +212,7 @@ public class testMasterMind {
 		mockReadParameters.colors[4] = "orange";
 		mockReadParameters.read_parameters(p2);
 		
-		boolean res3=MasterMind.Play(p1, p2);
+		boolean res3=m.Play(p1, p2);
 		
 		
 		assertTrue(res3);

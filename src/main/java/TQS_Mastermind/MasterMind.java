@@ -6,11 +6,15 @@ import java.util.Scanner;
 public class MasterMind {
 	static String colors []= {"red","blue","green","yellow","orange","purple"};
 	static String user_color[]= {"0","0","0","0","0"};
-	static Player player1= new Player(0);
-	static Player player2=new Player(1);
+	static Player player1;
+	static Player player2;
 	static int turn=0;
-	static int numPlays=12;
-	
+	static int numPlays;
+	MasterMind(){
+		player1= new Player(0);
+		player2=new Player(1);
+		numPlays=12;
+	}
 	static void read_parameters(){
 		Scanner in = new Scanner(System.in);
 		String color;
