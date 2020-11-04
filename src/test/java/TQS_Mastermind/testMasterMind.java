@@ -218,6 +218,45 @@ public class testMasterMind {
 		
 		boolean res1=m.Player2(p2);
 		assertFalse(res1);
+		
+		assertEquals(m.numPlays,11);
+		
+		m.Player2(p2);
+		assertEquals(m.numPlays,10);
+		
+		m.Player2(p2);
+		assertEquals(m.numPlays,9);
+		
+		m.Player2(p2);
+		assertEquals(m.numPlays,8);
+		
+		m.Player2(p2);
+		assertEquals(m.numPlays,7);
+		
+		m.Player2(p2);
+		assertEquals(m.numPlays,6);
+		
+		m.Player2(p2);
+		assertEquals(m.numPlays,5);
+		
+		m.Player2(p2);
+		assertEquals(m.numPlays,4);
+		
+		m.Player2(p2);
+		assertEquals(m.numPlays,3);
+		
+		m.Player2(p2);
+		assertEquals(m.numPlays,2);
+		
+		m.Player2(p2);
+		assertEquals(m.numPlays,1);
+		
+		m.Player2(p2);
+		assertEquals(m.numPlays,0); //incorrect values like -1 are checked in other tests, like test_Play
+		
+		
+		
+		
 	}
 	@Test
 	public void test_Play() {

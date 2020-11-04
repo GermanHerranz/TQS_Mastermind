@@ -64,6 +64,7 @@ public class MasterMind {
 			}
 			if(!find) {
 				turn(turn);
+				numPlays();
 			}
 			else {
 				System.out.println("Player2: Upps the sequence was wrong! Enter a new one with the accepted colors: red, blue, orange, green, yellow or purple");
@@ -79,7 +80,7 @@ public class MasterMind {
 	}
 	
 	static boolean Play(Player p1, Player p2) {
-		boolean find=false;
+		boolean find=false; //check if the turn has been completly succesfull
 		if(turn==0) {
 			find=Player1(p1);
 		}
