@@ -61,7 +61,7 @@ public class testMasterMind {
 	public void test_GenerateCode() {
 		MasterMind m= new MasterMind();
 		int array_code[]=m.generate_code();
-		assertEquals(array_code.length,6);
+		assertEquals(array_code.length,5);
 		
 		for(int i=0; i<array_code.length; i++) {
 			boolean value=m.check_parameters(array_code[i]);
@@ -74,7 +74,7 @@ public class testMasterMind {
 		MasterMind m= new MasterMind();
 		
 		boolean value0=m.check_parameters(6);
-		assertFalse(value0);
+		assertTrue(value0);
 		
 		boolean value=m.check_parameters(5);
 		assertTrue(value);
@@ -102,6 +102,9 @@ public class testMasterMind {
 		
 		boolean value9=m.check_parameters(4);
 		assertTrue(value9);
+		
+		boolean value10=m.check_parameters(7);
+		assertFalse(value10);
 		
 		/*boolean value10=m.check_parameters("red, yellow");
 		assertFalse(value10);

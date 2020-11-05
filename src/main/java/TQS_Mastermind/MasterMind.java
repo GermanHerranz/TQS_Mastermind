@@ -28,8 +28,8 @@ public class MasterMind {
 		
 	}
 	int[] generate_code() {
-		int code[]= new int[6];;
-		for(int i=0; i<6; i++) {
+		int code[]= new int[5];;
+		for(int i=0; i<5; i++) {
 			Random r= new Random();
 			code[i]=r.nextInt(6);
 		}
@@ -119,7 +119,7 @@ public class MasterMind {
 		
 		boolean find=false;
 
-		if(color <=5 && color>=0) {
+		if(color <=6 && color>=0) {
 			find=true;
 		}
 		return find;

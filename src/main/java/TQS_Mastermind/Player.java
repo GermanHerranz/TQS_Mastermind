@@ -3,13 +3,13 @@ package TQS_Mastermind;
 
 public class Player {
 	int id_player;
-	String user_color[]= {};
+	int user_color[]= {};
 	
 	Player(int id) {
 		id_player = id;
 		
 
-		user_color = new String[5];
+		user_color = new int[5];
 		user_color[0] = "0";
 		user_color[1] = "0";
 		user_color[2] = "0";
