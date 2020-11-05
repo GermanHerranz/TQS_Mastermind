@@ -1,6 +1,7 @@
 package TQS_Mastermind;
 
 import java.util.Arrays;
+import java.util.Random;
 import java.util.Scanner;
 
 public class MasterMind {
@@ -27,7 +28,11 @@ public class MasterMind {
 		
 	}
 	int[] generate_code() {
-		int code[]= {};
+		int code[]= new int[6];;
+		for(int i=0; i<6; i++) {
+			Random r= new Random();
+			code[i]=r.nextInt(6);
+		}
 		return code;
 	}
 	boolean Player1(Player p) {
