@@ -65,14 +65,14 @@ public class MasterMind {
 	}
 	
 	boolean Player2(Player p) {
-		boolean find=false;
+		boolean find=true;
 		int i=0;
 		if(p.user_color.length == 5) {
-			while(!find && i<5) {
-				//find=!check_parameters(p.get_usercolorPosition(i));
+			while(find && i<5) {
+				find=check_parameters(p.get_userColorPosition(i));
 				i=i+1;
 			}
-			if(!find) {
+			if(find) {
 				turn(turn);
 				numPlays();
 			}
