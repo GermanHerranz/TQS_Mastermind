@@ -58,40 +58,52 @@ public class testMasterMind {
 	}
 	
 	@Test
+	public void test_GenerateCode() {
+		MasterMind m= new MasterMind();
+		int array_code[]=m.generate_code();
+		assertEquals(array_code.length,5);
+		
+		for(int i=0; i<array_code.length; i++) {
+			boolean value=m.check_parameters(array_code[i]);
+			assertTrue(value);
+		}
+	}
+	
+	@Test
 	public void test_Check_Parameters() {
 		MasterMind m= new MasterMind();
 		
-		boolean value0=m.check_parameters("yellow ");
+		boolean value0=m.check_parameters(6);
 		assertFalse(value0);
 		
-		boolean value=m.check_parameters("red");
+		boolean value=m.check_parameters(5);
 		assertTrue(value);
 		
-		boolean value2=m.check_parameters("black");
+		boolean value2=m.check_parameters(-1);
 		assertFalse(value2);
 		
-		boolean value3=m.check_parameters("1");
+		boolean value3=m.check_parameters(-5);
 		assertFalse(value3);
 		
-		boolean value4=m.check_parameters("RED");
+		boolean value4=m.check_parameters(-4);
 		assertFalse(value4);
 		
-		boolean value5=m.check_parameters("Red");
-		assertFalse(value5);
+		boolean value5=m.check_parameters(0);
+		assertTrue(value5);
 		
-		boolean value6=m.check_parameters(" ");
-		assertFalse(value6);
+		boolean value6=m.check_parameters(1);
+		assertTrue(value6);
 		
-		boolean value7=m.check_parameters("!");
-		assertFalse(value7);
+		boolean value7=m.check_parameters(2);
+		assertTrue(value7);
 		
-		boolean value8=m.check_parameters("red!");
-		assertFalse(value8);
+		boolean value8=m.check_parameters(3);
+		assertTrue(value8);
 		
-		boolean value9=m.check_parameters("red yellow");
-		assertFalse(value9);
+		boolean value9=m.check_parameters(4);
+		assertTrue(value9);
 		
-		boolean value10=m.check_parameters("red, yellow");
+		/*boolean value10=m.check_parameters("red, yellow");
 		assertFalse(value10);
 		
 		boolean value11=m.check_parameters("purple");
@@ -107,7 +119,7 @@ public class testMasterMind {
 		assertTrue(value14);
 		
 		boolean value15=m.check_parameters("green");
-		assertTrue(value15);
+		assertTrue(value15);*/
 	}
 	
 	@Test
@@ -130,16 +142,17 @@ public class testMasterMind {
 	
 	@Test
 	public void test_Turn() {
-		int res=MasterMind.turn(0);
+		MasterMind m= new MasterMind();
+		int res=m.turn(0);
 		assertEquals(res, 1);
 		
-		int res1=MasterMind.turn(1);
+		int res1=m.turn(1);
 		assertEquals(res1, 0);
 		
-		int res2=MasterMind.turn(-1);
+		int res2=m.turn(-1);
 		assertEquals(res2, 0);
 		
-		int res3=MasterMind.turn(2);
+		int res3=m.turn(2);
 		assertEquals(res3, 0);
 		
 		
@@ -158,6 +171,14 @@ public class testMasterMind {
 		int res2=m.numPlays();
 		assertEquals(res2, 9);
 			
+		
+	}
+	
+	@Test
+	public void test_check_positions() {
+		MasterMind m= new MasterMind();
+		 
+		
 		
 	}
 	@Test
@@ -188,6 +209,9 @@ public class testMasterMind {
 		
 		boolean res1=m.Player1(p1);
 		assertFalse(res1);
+		
+		
+		
 		
 	}
 	@Test

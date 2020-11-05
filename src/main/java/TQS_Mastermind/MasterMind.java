@@ -4,16 +4,16 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class MasterMind {
-	static String colors []= {"red","blue","green","yellow","orange","purple"};
-	static String user_color[]= {"0","0","0","0","0"};
+    String colors []= {"red","blue","green","yellow","orange","purple"};
+    String user_color[]= {"0","0","0","0","0"};
 	
-	static int turn=0;
-	static int numPlays;
+	int turn=0;
+	int numPlays;
 	MasterMind(){
 		
 		numPlays=12;
 	}
-	static void read_parameters(Player player){
+	void read_parameters(Player player){
 		Scanner in = new Scanner(System.in);
 		String color;
 		for(int i=0; i<5; i++) {
@@ -26,15 +26,18 @@ public class MasterMind {
 		in.close();
 		
 	}
-	
-	static boolean Player1(Player p) {
+	int[] generate_code() {
+		int code[]= {};
+		return code;
+	}
+	boolean Player1(Player p) {
 		boolean find=false;
 		int i=0;
 		
 		if(numPlays==12) {
 			if(p.user_color.length == 5) {
 				while(!find && i<5) {
-					find=!(check_parameters(p.get_usercolorPosition(i))); //if the color is correct return true
+					//find=!(check_parameters(p.get_usercolorPosition(i))); //if the color is correct return true
 					i=i+1;
 				}
 				if(!find) {
@@ -48,16 +51,20 @@ public class MasterMind {
 				System.out.println("Player1: Upps!! Enter 5 colors please!!");
 			}
 		}
+		else {
+			
+		}
+			
 		
 		return find;
 	}
 	
-	static boolean Player2(Player p) {
+	boolean Player2(Player p) {
 		boolean find=false;
 		int i=0;
 		if(p.user_color.length == 5) {
 			while(!find && i<5) {
-				find=!check_parameters(p.get_usercolorPosition(i));
+				//find=!check_parameters(p.get_usercolorPosition(i));
 				i=i+1;
 			}
 			if(!find) {
@@ -77,7 +84,7 @@ public class MasterMind {
 		return find;
 	}
 	
-	static boolean Play(Player p1, Player p2) {
+	boolean Play(Player p1, Player p2) {
 		boolean find=false; //check if the turn has been completly succesfull
 		if(turn==0) {
 			find=Player1(p1);
@@ -88,7 +95,7 @@ public class MasterMind {
 		return find;
 		
 	}
-	static int turn(int t) {
+	int turn(int t) {
 		if(t==0) {
 			turn=1;
 		}
@@ -98,25 +105,19 @@ public class MasterMind {
 		return turn;
 	}
 	
-	static int numPlays() {
+	int numPlays() {
 		numPlays=numPlays-1;
 		return numPlays;
 	}
 	
-	static boolean check_parameters(String color) {
+	boolean check_parameters(int color) {
 		
 		boolean find=false;
 
-		if(Arrays.asList(colors).contains(color)) {
+		if(color <=5 && color>=0) {
 			find=true;
 		}
 		return find;
 	}
 
-	public static void main(String[] args) {
-		
-		//read_parameters();
-		//Play(player1,player2);
-		
-	  }
 }
