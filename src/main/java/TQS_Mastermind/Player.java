@@ -10,11 +10,11 @@ public class Player {
 		
 
 		user_color = new int[5];
-		user_color[0] = "0";
-		user_color[1] = "0";
-		user_color[2] = "0";
-		user_color[3] = "0";
-		user_color[4] = "0";
+		user_color[0] = 0;
+		user_color[1] = 0;
+		user_color[2] = 0;
+		user_color[3] = 0;
+		user_color[4] = 0;
 		
 	}
 	
