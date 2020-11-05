@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class MockReadParameters {
 	
-	String colors[];
+	int colors[];
 	
 	void read_parameters(Player player){
 	

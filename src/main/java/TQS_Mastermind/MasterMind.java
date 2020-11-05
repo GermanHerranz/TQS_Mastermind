@@ -16,10 +16,10 @@ public class MasterMind {
 	}
 	void read_parameters(Player player){
 		Scanner in = new Scanner(System.in);
-		String color;
+		int color;
 		for(int i=0; i<5; i++) {
 			
-			color = in.nextLine();
+			color = in.nextInt();
 			
 			player.set_userColorPosition (i, color); 
 		}
@@ -119,7 +119,7 @@ public class MasterMind {
 		
 		boolean find=false;
 
-		if(color <=6 && color>=0) {
+		if(color <=5 && color>=0) {
 			find=true;
 		}
 		return find;

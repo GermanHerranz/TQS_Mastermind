@@ -17,44 +17,40 @@ public class testMasterMind {
 		MockReadParameters mockReadParameters = new MockReadParameters();
 		Player p1 = new Player(0);
 		Player p2 = new Player(1);
-		mockReadParameters.colors = new String[5];
-		mockReadParameters.colors[0] = "red";
-		mockReadParameters.colors[1] = "yellow";
-		mockReadParameters.colors[2] = "black";
-		mockReadParameters.colors[3] = " ";
-		mockReadParameters.colors[4] = "orange!";
+		mockReadParameters.colors = new int[5];
+		mockReadParameters.colors[0] = 0;
+		mockReadParameters.colors[1] = 3;
+		mockReadParameters.colors[2] = 5;
+		mockReadParameters.colors[3] = -1;
+		mockReadParameters.colors[4] = 6;
 		mockReadParameters.read_parameters(p1);
 		
-		boolean value0=m.check_parameters(p1.get_usercolorPosition(0));
+		boolean value0=m.check_parameters(p1.get_userColorPosition(0));
 		assertTrue(value0);
 		
-		boolean value1=m.check_parameters(p1.get_usercolorPosition(1));
+		boolean value1=m.check_parameters(p1.get_userColorPosition(1));
 		assertTrue(value1);
 		
-		boolean value2=m.check_parameters(p1.get_usercolorPosition(2));
-		assertFalse(value2);
+		boolean value2=m.check_parameters(p1.get_userColorPosition(2));
+		assertTrue(value2);
 		
-		boolean value3=m.check_parameters(p1.get_usercolorPosition(3));
+		boolean value3=m.check_parameters(p1.get_userColorPosition(3));
 		assertFalse(value3);
 		
-		boolean value4=m.check_parameters(p1.get_usercolorPosition(2));
+		boolean value4=m.check_parameters(p1.get_userColorPosition(4));
 		assertFalse(value4);
 		
-		boolean value5=m.check_parameters(p1.get_usercolorPosition(-5));
+		boolean value5=m.check_parameters(p1.get_userColorPosition(-5));
 		assertFalse(value5);
 		
-		boolean value6=m.check_parameters(p1.get_usercolorPosition(6));
+		boolean value6=m.check_parameters(p1.get_userColorPosition(6));
 		assertFalse(value6);
 		
-		boolean value7=m.check_parameters(p1.get_usercolorPosition(-1));
+		boolean value7=m.check_parameters(p1.get_userColorPosition(-1));
 		assertFalse(value7);
 		
-		boolean value8=m.check_parameters(p1.get_usercolorPosition(5));
+		boolean value8=m.check_parameters(p1.get_userColorPosition(5));
 		assertFalse(value8);
-		
-		boolean value9=m.check_parameters(p2.get_usercolorPosition(3));
-		assertFalse(value9);
-		
 	}
 	
 	@Test
