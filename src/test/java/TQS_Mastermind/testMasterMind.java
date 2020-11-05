@@ -165,28 +165,28 @@ public class testMasterMind {
 		
 		MockReadParameters mockReadParameters = new MockReadParameters();
 		Player p1 = new Player(0);
-		mockReadParameters.colors = new String[5];
-		mockReadParameters.colors[0] = "red";
-		mockReadParameters.colors[1] = "yellow";
-		mockReadParameters.colors[2] = "black";
-		mockReadParameters.colors[3] = " ";
-		mockReadParameters.colors[4] = "orange!";
+		mockReadParameters.colors = new int[5];
+		mockReadParameters.colors[0] = 0;
+		mockReadParameters.colors[1] = 3;
+		mockReadParameters.colors[2] = 7;
+		mockReadParameters.colors[3] = -1;
+		mockReadParameters.colors[4] = 6;
 		mockReadParameters.read_parameters(p1);
 		
 		boolean res=m.Player1(p1);
-		assertTrue(res);
+		assertFalse(res);
 		
 		
-		mockReadParameters.colors = new String[5];
-		mockReadParameters.colors[0] = "red";
-		mockReadParameters.colors[1] = "yellow";
-		mockReadParameters.colors[2] = "purple";
-		mockReadParameters.colors[3] = "red";
-		mockReadParameters.colors[4] = "orange";
+		mockReadParameters.colors = new int[5];
+		mockReadParameters.colors[0] = 0;
+		mockReadParameters.colors[1] = 3;
+		mockReadParameters.colors[2] = 5;
+		mockReadParameters.colors[3] = 0;
+		mockReadParameters.colors[4] = 4;
 		mockReadParameters.read_parameters(p1);
 		
 		boolean res1=m.Player1(p1);
-		assertFalse(res1);	
+		assertTrue(res1);	
 	}
 	
 	@Test

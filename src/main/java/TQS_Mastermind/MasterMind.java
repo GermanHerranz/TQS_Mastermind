@@ -36,16 +36,16 @@ public class MasterMind {
 		return code;
 	}
 	boolean Player1(Player p) {
-		boolean find=false;
+		boolean find=true;
 		int i=0;
 		
 		if(numPlays==12) {
 			if(p.user_color.length == 5) {
-				while(!find && i<5) {
-					//find=!(check_parameters(p.get_usercolorPosition(i))); //if the color is correct return true
+				while(find && i<5) {
+					find=(check_parameters(p.get_userColorPosition(i))); //if the color is correct return true
 					i=i+1;
 				}
-				if(!find) {
+				if(find) {
 					turn(turn);
 				}
 				else {
