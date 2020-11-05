@@ -6,23 +6,21 @@ import java.util.Scanner;
 public class MasterMind {
 	static String colors []= {"red","blue","green","yellow","orange","purple"};
 	static String user_color[]= {"0","0","0","0","0"};
-	static Player player1;
-	static Player player2;
+	
 	static int turn=0;
 	static int numPlays;
 	MasterMind(){
-		player1= new Player(0);
-		player2=new Player(1);
+		
 		numPlays=12;
 	}
-	static void read_parameters(){
+	static void read_parameters(Player player){
 		Scanner in = new Scanner(System.in);
 		String color;
 		for(int i=0; i<5; i++) {
 			
 			color = in.nextLine();
 			
-			player1.set_usercolorPosition (i, color); 
+			player.set_usercolorPosition (i, color); 
 		}
 		
 		in.close();
@@ -36,7 +34,7 @@ public class MasterMind {
 		if(numPlays==12) {
 			if(p.user_color.length == 5) {
 				while(!find && i<5) {
-					find=!check_parameters(p.get_usercolorPosition(i)); //if the color is correct return true
+					find=!(check_parameters(p.get_usercolorPosition(i))); //if the color is correct return true
 					i=i+1;
 				}
 				if(!find) {
@@ -116,8 +114,9 @@ public class MasterMind {
 	}
 
 	public static void main(String[] args) {
-		read_parameters();
-		Play(player1,player2);
+		
+		//read_parameters();
+		//Play(player1,player2);
 		
 	  }
 }
