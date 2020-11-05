@@ -21,7 +21,7 @@ public class MasterMind {
 			
 			color = in.nextLine();
 			
-			player.set_usercolorPosition (i, color); 
+			player.set_userColorPosition (i, color); 
 		}
 		
 		in.close();

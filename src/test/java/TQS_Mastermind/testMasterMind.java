@@ -128,19 +128,17 @@ public class testMasterMind {
 	@Test
 	public void test_SetAndGetPlayer() {
 		Player p= new Player(0);
-		p.set_usercolorPosition(0, "red");
-		assertEquals(p.get_usercolorPosition(0), "red");
+		p.set_userColorPosition(0, 0);
+		assertEquals(p.get_userColorPosition(0), 0);
 		
-		p.set_usercolorPosition(4, "yellow");
-		assertEquals(p.get_usercolorPosition(4), "yellow");
+		p.set_userColorPosition(4, 3);
+		assertEquals(p.get_userColorPosition(4), 3);
 		
-		p.set_usercolorPosition(5, "yellow");
-		assertEquals(p.get_usercolorPosition(5), "-1");
+		p.set_userColorPosition(5, 3);
+		assertEquals(p.get_userColorPosition(5), -1);
 		
-		p.set_usercolorPosition(-1, "purple");
-		assertEquals(p.get_usercolorPosition(-1), "-1");
-		
-		
+		p.set_userColorPosition(-1, 5);
+		assertEquals(p.get_userColorPosition(-1), -1);
 	}
 	
 	@Test

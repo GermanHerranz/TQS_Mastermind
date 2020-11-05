@@ -18,14 +18,14 @@ public class Player {
 		
 	}
 	
-	String get_usercolorPosition (int position) {
+	int get_userColorPosition (int position) {
 		if (position >= 0 && position < user_color.length && (id_player==0 || id_player==1))
 			return user_color[position];
 		else
-			return "-1";
+			return -1;
 	}
 	
-	void set_usercolorPosition (int position, String color) {
+	void set_userColorPosition (int position, int color) {
 		if ((id_player == 0 || id_player==1) && position >= 0 && position < user_color.length)
 			user_color[position] = color;
 	}
