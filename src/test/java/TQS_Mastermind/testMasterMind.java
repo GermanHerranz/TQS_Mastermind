@@ -66,6 +66,14 @@ public class testMasterMind {
 	}
 	
 	@Test
+	public void test_Random_Numbers() {
+		MockRandomNumbers mockrandomnumbers= new MockRandomNumbers();
+		
+		mockrandomnumbers.random_numbers();
+		
+	}
+	
+	@Test
 	public void test_Check_Parameters() {
 		MasterMind m= new MasterMind();
 		
