@@ -1,7 +1,5 @@
 package TQS_Mastermind;
 
-import java.util.Random;
-
 public class MockRandomNumbers {
 	
 	int array[] = new int[5];

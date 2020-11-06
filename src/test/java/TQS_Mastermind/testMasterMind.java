@@ -483,7 +483,38 @@ public class testMasterMind {
 		boolean res3=m.Play(p1, p2);
 		assertFalse(res3);
 	}
+	/*
+	@Test
+	public void test_Save_Play() {
+		Play play = new Play();
+		MockRandomNumbers mockrandomnumbers= new MockRandomNumbers();
+		
+		mockrandomnumbers.array = new int[5];
+		mockrandomnumbers.array[0] = 0;
+		mockrandomnumbers.array[1] = 3;
+		mockrandomnumbers.array[2] = 5;
+		mockrandomnumbers.array[3] = 4;
+		mockrandomnumbers.array[4] = 2;
+		
+		play.set_play();
+		play.get_play();
+		assertEquals();
+	}*/
 	
-	
+	@Test
+	public void test_SetandGet_play() {
+		Play play = new Play();
+		MockRandomNumbers mockrandomnumbers= new MockRandomNumbers();
+		
+		mockrandomnumbers.array = new int[5];
+		mockrandomnumbers.array[0] = 0;
+		mockrandomnumbers.array[1] = 3;
+		mockrandomnumbers.array[2] = 5;
+		mockrandomnumbers.array[3] = 4;
+		mockrandomnumbers.array[4] = 2;
+		
+		play.set_play(mockrandomnumbers.array);
+		assertEquals(play.get_play(), mockrandomnumbers.array[i]);
+	}
 	
 }

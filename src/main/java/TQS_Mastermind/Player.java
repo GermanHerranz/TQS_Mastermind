@@ -5,9 +5,10 @@ public class Player {
 	int id_player;
 	int user_color[]= {};
 	
+	
+	
 	Player(int id) {
 		id_player = id;
-		
 
 		user_color = new int[5];
 		user_color[0] = 0;
@@ -29,4 +30,5 @@ public class Player {
 		if ((id_player == 0 || id_player==1) && position >= 0 && position < user_color.length)
 			user_color[position] = color;
 	}
+	
 }
