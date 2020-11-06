@@ -28,7 +28,7 @@ public class MasterMind {
 		
 	}
 	int[] generate_code() {
-		int code[]= new int[5];;
+		int code[]= new int[5];
 		for(int i=0; i<5; i++) {
 			Random r= new Random();
 			code[i]=r.nextInt(6);

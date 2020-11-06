@@ -68,9 +68,40 @@ public class testMasterMind {
 	@Test
 	public void test_Random_Numbers() {
 		MockRandomNumbers mockrandomnumbers= new MockRandomNumbers();
+		MasterMind m= new MasterMind();
+		Player p= new Player(0);
 		
-		mockrandomnumbers.random_numbers();
+		mockrandomnumbers.array = new int[5];
+		mockrandomnumbers.array[0] = 0;
+		mockrandomnumbers.array[1] = 3;
+		mockrandomnumbers.array[2] = 5;
+		mockrandomnumbers.array[3] = -1;
+		mockrandomnumbers.array[4] = 6;
 		
+		boolean res = mockrandomnumbers.random_numbers(p, m);
+		assertTrue(res);
+		
+		for(int i=0; i<mockrandomnumbers.array.length; i++) {
+			boolean value1=m.check_parameters(mockrandomnumbers.array[i]);
+			if (i==3 || i==4)
+				assertFalse(value1);
+			else
+				assertTrue(value1);
+		}
+		
+		mockrandomnumbers.array[0] = 0;
+		mockrandomnumbers.array[1] = 3;
+		mockrandomnumbers.array[2] = 5;
+		mockrandomnumbers.array[3] = 4;
+		mockrandomnumbers.array[4] = 2;
+		
+		boolean res1 = mockrandomnumbers.random_numbers(p, m);
+		assertTrue(res1);
+		
+		for(int i=0; i<mockrandomnumbers.array.length; i++) {
+			boolean value2=m.check_parameters(mockrandomnumbers.array[i]);
+			assertTrue(value2);
+		}	
 	}
 	
 	@Test
