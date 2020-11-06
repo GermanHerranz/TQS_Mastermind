@@ -505,6 +505,7 @@ public class testMasterMind {
 	public void test_SetandGet_play() {
 		Play play = new Play();
 		MockRandomNumbers mockrandomnumbers= new MockRandomNumbers();
+		int new_a[] = new int[5];
 		
 		mockrandomnumbers.array = new int[5];
 		mockrandomnumbers.array[0] = 0;
@@ -514,7 +515,10 @@ public class testMasterMind {
 		mockrandomnumbers.array[4] = 2;
 		
 		play.set_play(mockrandomnumbers.array);
-		assertEquals(play.get_play(), mockrandomnumbers.array[i]);
+		new_a = play.get_play();
+		
+		for (int i=0; i<mockrandomnumbers.array.length; i++)
+			assertEquals(new_a[i], mockrandomnumbers.array[i]);
 	}
 	
 }
