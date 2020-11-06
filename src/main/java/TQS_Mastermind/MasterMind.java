@@ -49,11 +49,9 @@ public class MasterMind {
 					turn(turn);
 				}
 				else {
-					System.out.println("Player1: Upps the sequence was wrong! Enter a new one with the accepted colors: red, blue, orange, green, yellow or purple");
+					//generate_code();
+					//Player1(p);
 				}
-			}
-			else {
-				System.out.println("Player1: Upps!! Enter 5 colors please!!");
 			}
 		}
 		else {
@@ -78,12 +76,16 @@ public class MasterMind {
 			}
 			else {
 				System.out.println("Player2: Upps the sequence was wrong! Enter a new one with the accepted colors: red, blue, orange, green, yellow or purple");
+				//read_parameters(p);
+				//Player2(p);
 			}
 			
 		}
 		
 		else {
 			System.out.println("Player2: Upps!! Enter 5 colors please!!");
+			//read_parameters(p);
+			//Player2(p);
 		}
 		
 		return find;
@@ -123,6 +125,21 @@ public class MasterMind {
 			find=true;
 		}
 		return find;
+	}
+	
+	boolean check_positions(Player p1, Player p2) {
+		boolean same=true;
+        int length = p1.user_color.length;
+        int i=0;
+        while (i<length && same) {
+            if (p1.user_color[i] == p2.user_color[i])
+                same=true;
+            else
+                same=false;
+            i++;
+        }
+        
+        return same;
 	}
 
 }
