@@ -17,6 +17,7 @@ public class Player {
 		user_color[3] = 0;
 		user_color[4] = 0;
 		
+		save_play = new Play[12];
 		for(int i=0; i<12; i++) {
         	save_play[i] = new Play();
         }
@@ -35,13 +36,21 @@ public class Player {
 			user_color[position] = color;
 	}
 	
-	void Save_Play(int[] array, int pos) {
-    	
-    	save_play[pos].set_play(array);
+	boolean Save_Play(int[] array, int pos) {
+    	boolean saved=false;
+    	if(pos<12 && pos>=0) {
+    		save_play[pos].set_play(array);
+    		saved=true;
+    	}
+    	return saved;
     }
     
     int[] get_saved_play(int pos) {
-    	return save_play[pos].get_play(); 
+    	if(pos<12 && pos>=0) {
+    		return save_play[pos].get_play();
+    	}
+    	int array[]= {};
+    	return array;
     }
 	
 }
