@@ -3,6 +3,7 @@ package TQS_Mastermind;
 public class Play {
 	
 	int play []= {};
+	
     
 	Play() {
         play = new int[5];
@@ -12,6 +13,8 @@ public class Play {
         play[2] = 0;
         play[3] = 0;
         play[4] = 0;
+        
+        
     }
     
     void set_play(int[] array) {
@@ -20,7 +23,9 @@ public class Play {
     }
     
     int[] get_play() {
-        System.out.println("JUGADA: " + play);
+        System.out.println("PLAY: " + play);
         return play;
     }
+    
+    
 }

@@ -431,7 +431,7 @@ public class testMasterMind {
 		assertEquals(m.numPlays,0); //incorrect values like -1 are checked in other tests, like test_Play
 	}
 	
-	@Test
+	/*@Test
 	public void test_Play() {
 		MasterMind m= new MasterMind();
 		MockReadParameters mockReadParameters = new MockReadParameters();
@@ -482,10 +482,11 @@ public class testMasterMind {
 		
 		boolean res3=m.Play(p1, p2);
 		assertFalse(res3);
-	}
-	/*
+	}*/
+	
 	@Test
-	public void test_Save_Play() {
+	public void test_Save_and_GetSaved_Play() { //Save the correct plays and get them
+		Player p1= new Player(0);
 		Play play = new Play();
 		MockRandomNumbers mockrandomnumbers= new MockRandomNumbers();
 		
@@ -496,10 +497,10 @@ public class testMasterMind {
 		mockrandomnumbers.array[3] = 4;
 		mockrandomnumbers.array[4] = 2;
 		
-		play.set_play();
-		play.get_play();
-		assertEquals();
-	}*/
+		p1.Save_Play(mockrandomnumbers.array, 0);
+		int res[]=p1.get_saved_play(0);
+		assertEquals(res, mockrandomnumbers.array);
+	}
 	
 	@Test
 	public void test_SetandGet_play() {
