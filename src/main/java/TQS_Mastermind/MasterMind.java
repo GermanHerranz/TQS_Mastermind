@@ -1,9 +1,10 @@
 package TQS_Mastermind;
 
-import java.util.Arrays;
-//import java.util.Arrays;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
+
+import com.google.common.primitives.Ints;
+
+
 
 public class MasterMind {
     int colors []= {0, 1, 2, 3, 4, 5};
@@ -139,23 +140,25 @@ public class MasterMind {
         int length = p1.user_color.length;
         int i=0;
         while (i<length) {
-            if (p1.user_color[i] == p2.user_color[i]) {
+			if (p1.user_color[i] == p2.user_color[i]) {
             	comparison[i]=1;
             }
             else {
             	same=false;
-            	if(Arrays.asList(p1.user_color).contains(p2.user_color[i])) {
+            	if(Ints.contains(p1.user_color, p2.user_color[i])) {
                 	comparison[i]=0;
             	}
             	else {
                 	comparison[i]=-1;
             	}
             }
-                
+			System.out.println("P1" + p1.user_color[i]);
+			System.out.println("asList" + Arrays.asList(p1.user_color));
+			System.out.println("P2" + p2.user_color[i]);
+			System.out.println("comparison" + comparison[i]);
             i++;
         }
         
         return same;
 	}
-
 }

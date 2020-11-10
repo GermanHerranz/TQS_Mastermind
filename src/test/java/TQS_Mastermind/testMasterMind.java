@@ -198,6 +198,15 @@ public class testMasterMind {
 	        
 	        boolean res1=m.check_positions(p1, p2);
 	        assertTrue(res1);
+	        int value1[] = new int[5];
+	        value1[0]=1;
+	        value1[1]=1;
+	        value1[2]=1;
+	        value1[3]=1;
+	        value1[4]=1;
+	        for(int i=0; i<mockReadParameters.colors.length; i++) {
+				assertEquals(value1[i], m.comparison[i]);
+			}
 	        
 	        
 	        mockReadParameters.colors = new int[5];
@@ -218,6 +227,15 @@ public class testMasterMind {
 	        
 	        boolean res2=m.check_positions(p1, p2);
 	        assertFalse(res2);
+	        int value2[] = new int[5];
+	        value2[0]=-1;
+	        value2[1]=1;
+	        value2[2]=1;
+	        value2[3]=1;
+	        value2[4]=1;
+	        for(int i=0; i<mockReadParameters.colors.length; i++) {
+				assertEquals(value2[i], m.comparison[i]);
+			}
 	        
 	        
 	        mockReadParameters.colors = new int[5];
@@ -238,6 +256,15 @@ public class testMasterMind {
 	        
 	        boolean res3=m.check_positions(p1, p2);
 	        assertFalse(res3);
+	        int value3[] = new int[5];
+	        value3[0]=1;
+	        value3[1]=0;
+	        value3[2]=1;
+	        value3[3]=1;
+	        value3[4]=1;
+	        for(int i=0; i<mockReadParameters.colors.length; i++) {
+				assertEquals(value3[i], m.comparison[i]);
+			}
 	        
 	        
 	        mockReadParameters.colors = new int[5];
@@ -258,7 +285,15 @@ public class testMasterMind {
 	        
 	        boolean res4=m.check_positions(p1, p2);
 	        assertFalse(res4);
-	        
+	        int value4[] = new int[5];
+	        value4[0]=1;
+	        value4[1]=1;
+	        value4[2]=0;
+	        value4[3]=1;
+	        value4[4]=1;
+	        for(int i=0; i<mockReadParameters.colors.length; i++) {
+				assertEquals(value4[i], m.comparison[i]);
+			}
 	        
 	        mockReadParameters.colors = new int[5];
 	        mockReadParameters.colors[0] = 0;
@@ -271,14 +306,22 @@ public class testMasterMind {
 	        mockReadParameters.colors = new int[5];
 	        mockReadParameters.colors[0] = 0;
 	        mockReadParameters.colors[1] = 2;
-	        mockReadParameters.colors[2] = 5;
-	        mockReadParameters.colors[3] = 0;
+	        mockReadParameters.colors[2] = 4;
+	        mockReadParameters.colors[3] = 5;
 	        mockReadParameters.colors[4] = 0;
 	        mockReadParameters.read_parameters(p2);
 	        
 	        boolean res5=m.check_positions(p1, p2);
 	        assertFalse(res5);
-	        
+	        int value5[] = new int[5];
+	        value5[0]=1;
+	        value5[1]=1;
+	        value5[2]=-1;
+	        value5[3]=0;
+	        value5[4]=1;
+	        for(int i=0; i<mockReadParameters.colors.length; i++) {
+				assertEquals(value5[i], m.comparison[i]);
+			}
 	        
 	        mockReadParameters.colors = new int[5];
 	        mockReadParameters.colors[0] = 0;
