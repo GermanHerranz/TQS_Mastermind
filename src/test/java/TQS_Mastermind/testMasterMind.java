@@ -351,27 +351,22 @@ public class testMasterMind {
 	public void test_Player1() {
 		MasterMind m= new MasterMind();
 		
-		MockReadParameters mockReadParameters = new MockReadParameters();
 		Player p1 = new Player(0);
-		mockReadParameters.colors = new int[5];
-		mockReadParameters.colors[0] = 0;
-		mockReadParameters.colors[1] = 3;
-		mockReadParameters.colors[2] = 7;
-		mockReadParameters.colors[3] = -1;
-		mockReadParameters.colors[4] = 6;
-		mockReadParameters.read_parameters(p1);
+		m.code = new int[5];
+		m.code[0] = 0;
+		m.code[1] = 3;
+		m.code[2] = 7;
+		m.code[3] = -1;
+		m.code[4] = 6;
 		
 		boolean res=m.Player1(p1);
 		assertFalse(res);
-		
-		
-		mockReadParameters.colors = new int[5];
-		mockReadParameters.colors[0] = 0;
-		mockReadParameters.colors[1] = 3;
-		mockReadParameters.colors[2] = 5;
-		mockReadParameters.colors[3] = 0;
-		mockReadParameters.colors[4] = 4;
-		mockReadParameters.read_parameters(p1);
+	
+		m.code[0] = 0;
+		m.code[1] = 3;
+		m.code[2] = 5;
+		m.code[3] = 0;
+		m.code[4] = 4;
 		
 		boolean res1=m.Player1(p1);
 		assertTrue(res1);	

@@ -48,9 +48,9 @@ public class MasterMind {
 		int i=0;
 		
 		if(numPlays==12) {
-			if(p.user_color.length == 5) {
+			if(code.length == 5) {
 				while(find && i<5) {
-					find=(check_parameters(p.get_userColorPosition(i))); //if the color is correct return true
+					find=(check_parameters(code[i])); //if the color is correct return true
 					i=i+1;
 				}
 				if(find) {
@@ -69,9 +69,9 @@ public class MasterMind {
 	boolean Player2(Player p) {
 		boolean find=true;
 		int i=0;
-		if(p.user_color.length == 5) {
+		if(code.length == 5) {
 			while(find && i<5) {
-				find=check_parameters(p.get_userColorPosition(i));
+				find=check_parameters(code[i]);
 				i=i+1;
 			}
 			if(find) {
