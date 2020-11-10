@@ -1,18 +1,25 @@
 package TQS_Mastermind;
 
+import java.util.Arrays;
 //import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
 public class MasterMind {
-    String colors []= {"red","blue","green","yellow","orange","purple"};
-    String user_color[]= {"0","0","0","0","0"};
-	
+    int colors []= {0, 1, 2, 3, 4, 5};
 	int turn=0;
 	int numPlays;
+	int comparison[]= {};
+	
 	MasterMind(){
-		
 		numPlays=12;
+		
+		comparison = new int[5];
+		comparison[0] = 0;
+		comparison[1] = 0;
+		comparison[2] = 0;
+		comparison[3] = 0;
+		comparison[4] = 0;
 	}
 	void read_parameters(Player player){
 		Scanner in = new Scanner(System.in);
@@ -131,11 +138,20 @@ public class MasterMind {
 		boolean same=true;
         int length = p1.user_color.length;
         int i=0;
-        while (i<length && same) {
-            if (p1.user_color[i] == p2.user_color[i])
-                same=true;
-            else
-                same=false;
+        while (i<length) {
+            if (p1.user_color[i] == p2.user_color[i]) {
+            	comparison[i]=1;
+            }
+            else {
+            	same=false;
+            	if(Arrays.asList(p1.user_color).contains(p2.user_color[i])) {
+                	comparison[i]=0;
+            	}
+            	else {
+                	comparison[i]=-1;
+            	}
+            }
+                
             i++;
         }
         
