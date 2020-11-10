@@ -5,7 +5,7 @@ public class Play {
 	int play []= {};
 	
     
-	Play() {
+	public Play() {
         play = new int[5];
         
         play[0] = 0;
@@ -17,12 +17,12 @@ public class Play {
         
     }
     
-    void set_play(int[] array) {
+    public void set_play(int[] array) {
         for (int i=0; i<play.length; i++)
             play[i]=array[i];
     }
     
-    int[] get_play() {
+    public int[] get_play() {
         System.out.println("PLAY: " + play);
         return play;
     }

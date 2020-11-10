@@ -1,6 +1,6 @@
 package TQS_Mastermind;
 
-import java.util.Arrays;
+//import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 

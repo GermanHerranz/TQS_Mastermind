@@ -11,12 +11,12 @@ public class testMasterMind {
     public void setUp() throws Exception {
     }
 	
-	/*@Test
+	@Test
 	public void test_Read_Parameters() {
 		MasterMind m= new MasterMind();
 		MockReadParameters mockReadParameters = new MockReadParameters();
 		Player p1 = new Player(0);
-		Player p2 = new Player(1);
+		//Player p2 = new Player(1);
 		mockReadParameters.colors = new int[5];
 		mockReadParameters.colors[0] = 0;
 		mockReadParameters.colors[1] = 3;
@@ -143,22 +143,6 @@ public class testMasterMind {
 		
 		boolean value11=m.check_parameters(20);
 		assertFalse(value11);
-	}*/
-	
-	@Test
-	public void test_SetAndGetPlayer() {
-		Player p= new Player(0);
-		p.set_userColorPosition(0, 0);
-		assertEquals(p.get_userColorPosition(0), 0);
-		
-		p.set_userColorPosition(4, 3);
-		assertEquals(p.get_userColorPosition(4), 3);
-		
-		p.set_userColorPosition(5, 3);
-		assertEquals(p.get_userColorPosition(5), -1);
-		
-		p.set_userColorPosition(-1, 5);
-		assertEquals(p.get_userColorPosition(-1), -1);
 	}
 	
 	@Test
@@ -189,7 +173,7 @@ public class testMasterMind {
 		int res2=m.numPlays();
 		assertEquals(res2, 9);
 	}
-	/*
+	
 	@Test
 	public void test_check_positions() {
 		 MasterMind m = new MasterMind();
@@ -430,7 +414,7 @@ public class testMasterMind {
 		m.Player2(p2);
 		assertEquals(m.numPlays,0); //incorrect values like -1 are checked in other tests, like test_Play
 	}
-	*/
+	
 	/*@Test
 	public void test_Play() {
 		MasterMind m= new MasterMind();
@@ -483,84 +467,5 @@ public class testMasterMind {
 		boolean res3=m.Play(p1, p2);
 		assertFalse(res3);
 	}*/
-	
-	@Test
-	public void test_Save_and_GetSaved_Play() { //Save the correct plays and get them
-		Player p1= new Player(0);				
-		MockRandomNumbers mockrandomnumbers= new MockRandomNumbers();
-		
-		mockrandomnumbers.array = new int[5];
-		mockrandomnumbers.array[0] = 0;
-		mockrandomnumbers.array[1] = 3;
-		mockrandomnumbers.array[2] = 5;
-		mockrandomnumbers.array[3] = 4;
-		mockrandomnumbers.array[4] = 2;
-		
-		boolean saved=p1.Save_Play(mockrandomnumbers.array, 0);
-		assertTrue(saved);
-		int res[]=p1.get_saved_play(0);
-		assertEquals(res.length, mockrandomnumbers.array.length);
-		for(int i=0; i<5; i++) {
-			assertEquals(res[i], mockrandomnumbers.array[i]);
-		}
-		
-		mockrandomnumbers.array = new int[5];
-		mockrandomnumbers.array[0] = 2;
-		mockrandomnumbers.array[1] = 3;
-		mockrandomnumbers.array[2] = 1;
-		mockrandomnumbers.array[3] = 4;
-		mockrandomnumbers.array[4] = 3;
-		boolean saved2=p1.Save_Play(mockrandomnumbers.array, 11);
-		assertTrue(saved2);
-		int res2[]=p1.get_saved_play(11);
-		assertEquals(res.length, mockrandomnumbers.array.length);
-		for(int i=0; i<5; i++) {
-			assertEquals(res2[i], mockrandomnumbers.array[i]);
-		}
-		
-		mockrandomnumbers.array = new int[5];
-		mockrandomnumbers.array[0] = 3;
-		mockrandomnumbers.array[1] = 3;
-		mockrandomnumbers.array[2] = 1;
-		mockrandomnumbers.array[3] = 4;
-		mockrandomnumbers.array[4] = 2;
-		boolean saved3=p1.Save_Play(mockrandomnumbers.array, 12);
-		assertFalse(saved3);
-		int res3[]=p1.get_saved_play(12);
-		assertEquals(res3.length, 0);
-		
-		
-		mockrandomnumbers.array = new int[5];
-		mockrandomnumbers.array[0] = 3;
-		mockrandomnumbers.array[1] = 3;
-		mockrandomnumbers.array[2] = 2;
-		mockrandomnumbers.array[3] = 2;
-		mockrandomnumbers.array[4] = 2;
-		boolean saved4=p1.Save_Play(mockrandomnumbers.array, -1);
-		assertFalse(saved4);
-		int res4[]=p1.get_saved_play(-1);
-		assertEquals(res4.length, 0);
-		
-	}
-	
-	@Test
-	public void test_SetandGet_play() { //save ONLY the current play and latter check it
-		Play play = new Play();
-		MockRandomNumbers mockrandomnumbers= new MockRandomNumbers();
-		int new_a[] = new int[5];
-		
-		mockrandomnumbers.array = new int[5];
-		mockrandomnumbers.array[0] = 0;
-		mockrandomnumbers.array[1] = 3;
-		mockrandomnumbers.array[2] = 5;
-		mockrandomnumbers.array[3] = 4;
-		mockrandomnumbers.array[4] = 2;
-		
-		play.set_play(mockrandomnumbers.array);
-		new_a = play.get_play();
-		
-		for (int i=0; i<mockrandomnumbers.array.length; i++)
-			assertEquals(new_a[i], mockrandomnumbers.array[i]);
-	}
 	
 }

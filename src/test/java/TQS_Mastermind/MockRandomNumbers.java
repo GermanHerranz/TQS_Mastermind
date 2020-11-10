@@ -2,7 +2,7 @@ package TQS_Mastermind;
 
 public class MockRandomNumbers {
 	
-	int array[] = new int[5];
+	public int array[] = new int[5];
 	
 	boolean random_numbers(Player player, MasterMind md) {
 		boolean find=false;
