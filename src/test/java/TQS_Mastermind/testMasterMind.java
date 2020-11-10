@@ -11,7 +11,7 @@ public class testMasterMind {
     public void setUp() throws Exception {
     }
 	
-	@Test
+	/*@Test
 	public void test_Read_Parameters() {
 		MasterMind m= new MasterMind();
 		MockReadParameters mockReadParameters = new MockReadParameters();
@@ -143,7 +143,7 @@ public class testMasterMind {
 		
 		boolean value11=m.check_parameters(20);
 		assertFalse(value11);
-	}
+	}*/
 	
 	@Test
 	public void test_SetAndGetPlayer() {
@@ -189,7 +189,7 @@ public class testMasterMind {
 		int res2=m.numPlays();
 		assertEquals(res2, 9);
 	}
-	
+	/*
 	@Test
 	public void test_check_positions() {
 		 MasterMind m = new MasterMind();
@@ -430,7 +430,7 @@ public class testMasterMind {
 		m.Player2(p2);
 		assertEquals(m.numPlays,0); //incorrect values like -1 are checked in other tests, like test_Play
 	}
-	
+	*/
 	/*@Test
 	public void test_Play() {
 		MasterMind m= new MasterMind();
