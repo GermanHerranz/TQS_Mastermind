@@ -11,6 +11,7 @@ public class MasterMind {
 	int turn=0;
 	int numPlays;
 	int comparison[]= {};
+	int code[]= new int[5];
 	
 	MasterMind(){
 		numPlays=12;
@@ -36,7 +37,6 @@ public class MasterMind {
 		
 	}
 	int[] generate_code() {
-		int code[]= new int[5];
 		for(int i=0; i<5; i++) {
 			Random r= new Random();
 			code[i]=r.nextInt(6);
@@ -55,10 +55,6 @@ public class MasterMind {
 				}
 				if(find) {
 					turn(turn);
-				}
-				else {
-					//generate_code();
-					//Player1(p);
 				}
 			}
 		}
@@ -135,27 +131,23 @@ public class MasterMind {
 		return find;
 	}
 	
-	boolean check_positions(Player p1, Player p2) {
+	boolean check_positions(Player p2) {
 		boolean same=true;
-        int length = p1.user_color.length;
+        int length = code.length;
         int i=0;
         while (i<length) {
-			if (p1.user_color[i] == p2.user_color[i]) {
+			if (code[i] == p2.user_color[i]) {
             	comparison[i]=1;
             }
             else {
             	same=false;
-            	if(Ints.contains(p1.user_color, p2.user_color[i])) {
+            	if(Ints.contains(code, p2.user_color[i])) {
                 	comparison[i]=0;
             	}
             	else {
                 	comparison[i]=-1;
             	}
             }
-			System.out.println("P1" + p1.user_color[i]);
-			System.out.println("asList" + Arrays.asList(p1.user_color));
-			System.out.println("P2" + p2.user_color[i]);
-			System.out.println("comparison" + comparison[i]);
             i++;
         }
         

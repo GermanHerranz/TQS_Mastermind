@@ -177,16 +177,13 @@ public class testMasterMind {
 	@Test
 	public void test_check_positions() {
 		 MasterMind m = new MasterMind();
-	        MockReadParameters mockReadParameters = new MockReadParameters();
-	        Player p1 = new Player(0);
+		 MockReadParameters mockReadParameters = new MockReadParameters();
 	        Player p2 = new Player(1);
-	        mockReadParameters.colors = new int[5];
-	        mockReadParameters.colors[0] = 0;
-	        mockReadParameters.colors[1] = 2;
-	        mockReadParameters.colors[2] = 5;
-	        mockReadParameters.colors[3] = 1;
-	        mockReadParameters.colors[4] = 0;
-	        mockReadParameters.read_parameters(p1);
+	        m.code[0] = 0;
+	        m.code[1] = 2;
+	        m.code[2] = 5;
+	        m.code[3] = 1;
+	        m.code[4] = 0;
 	        
 	        mockReadParameters.colors = new int[5];
 	        mockReadParameters.colors[0] = 0;
@@ -196,7 +193,7 @@ public class testMasterMind {
 	        mockReadParameters.colors[4] = 0;
 	        mockReadParameters.read_parameters(p2);
 	        
-	        boolean res1=m.check_positions(p1, p2);
+	        boolean res1=m.check_positions(p2);
 	        assertTrue(res1);
 	        int value1[] = new int[5];
 	        value1[0]=1;
@@ -208,14 +205,11 @@ public class testMasterMind {
 				assertEquals(value1[i], m.comparison[i]);
 			}
 	        
-	        
-	        mockReadParameters.colors = new int[5];
-	        mockReadParameters.colors[0] = 0;
-	        mockReadParameters.colors[1] = 2;
-	        mockReadParameters.colors[2] = 5;
-	        mockReadParameters.colors[3] = 1;
-	        mockReadParameters.colors[4] = 0;
-	        mockReadParameters.read_parameters(p1);
+	        m.code[0] = 0;
+	        m.code[1] = 2;
+	        m.code[2] = 5;
+	        m.code[3] = 1;
+	        m.code[4] = 0;
 	        
 	        mockReadParameters.colors = new int[5];
 	        mockReadParameters.colors[0] = 3;
@@ -225,7 +219,7 @@ public class testMasterMind {
 	        mockReadParameters.colors[4] = 0;
 	        mockReadParameters.read_parameters(p2);
 	        
-	        boolean res2=m.check_positions(p1, p2);
+	        boolean res2=m.check_positions(p2);
 	        assertFalse(res2);
 	        int value2[] = new int[5];
 	        value2[0]=-1;
@@ -238,13 +232,11 @@ public class testMasterMind {
 			}
 	        
 	        
-	        mockReadParameters.colors = new int[5];
-	        mockReadParameters.colors[0] = 0;
-	        mockReadParameters.colors[1] = 2;
-	        mockReadParameters.colors[2] = 5;
-	        mockReadParameters.colors[3] = 1;
-	        mockReadParameters.colors[4] = 0;
-	        mockReadParameters.read_parameters(p1);
+	        m.code[0] = 0;
+	        m.code[1] = 2;
+	        m.code[2] = 5;
+	        m.code[3] = 1;
+	        m.code[4] = 0;
 	        
 	        mockReadParameters.colors = new int[5];
 	        mockReadParameters.colors[0] = 0;
@@ -254,7 +246,7 @@ public class testMasterMind {
 	        mockReadParameters.colors[4] = 0;
 	        mockReadParameters.read_parameters(p2);
 	        
-	        boolean res3=m.check_positions(p1, p2);
+	        boolean res3=m.check_positions(p2);
 	        assertFalse(res3);
 	        int value3[] = new int[5];
 	        value3[0]=1;
@@ -267,13 +259,11 @@ public class testMasterMind {
 			}
 	        
 	        
-	        mockReadParameters.colors = new int[5];
-	        mockReadParameters.colors[0] = 0;
-	        mockReadParameters.colors[1] = 2;
-	        mockReadParameters.colors[2] = 5;
-	        mockReadParameters.colors[3] = 1;
-	        mockReadParameters.colors[4] = 0;
-	        mockReadParameters.read_parameters(p1);
+	        m.code[0] = 0;
+	        m.code[1] = 2;
+	        m.code[2] = 5;
+	        m.code[3] = 1;
+	        m.code[4] = 0;
 	        
 	        mockReadParameters.colors = new int[5];
 	        mockReadParameters.colors[0] = 0;
@@ -283,7 +273,7 @@ public class testMasterMind {
 	        mockReadParameters.colors[4] = 0;
 	        mockReadParameters.read_parameters(p2);
 	        
-	        boolean res4=m.check_positions(p1, p2);
+	        boolean res4=m.check_positions(p2);
 	        assertFalse(res4);
 	        int value4[] = new int[5];
 	        value4[0]=1;
@@ -295,13 +285,11 @@ public class testMasterMind {
 				assertEquals(value4[i], m.comparison[i]);
 			}
 	        
-	        mockReadParameters.colors = new int[5];
-	        mockReadParameters.colors[0] = 0;
-	        mockReadParameters.colors[1] = 2;
-	        mockReadParameters.colors[2] = 5;
-	        mockReadParameters.colors[3] = 1;
-	        mockReadParameters.colors[4] = 0;
-	        mockReadParameters.read_parameters(p1);
+	        m.code[0] = 0;
+	        m.code[1] = 2;
+	        m.code[2] = 5;
+	        m.code[3] = 1;
+	        m.code[4] = 0;
 	        
 	        mockReadParameters.colors = new int[5];
 	        mockReadParameters.colors[0] = 0;
@@ -311,7 +299,7 @@ public class testMasterMind {
 	        mockReadParameters.colors[4] = 0;
 	        mockReadParameters.read_parameters(p2);
 	        
-	        boolean res5=m.check_positions(p1, p2);
+	        boolean res5=m.check_positions(p2);
 	        assertFalse(res5);
 	        int value5[] = new int[5];
 	        value5[0]=1;
@@ -323,13 +311,11 @@ public class testMasterMind {
 				assertEquals(value5[i], m.comparison[i]);
 			}
 	        
-	        mockReadParameters.colors = new int[5];
-	        mockReadParameters.colors[0] = 0;
-	        mockReadParameters.colors[1] = 2;
-	        mockReadParameters.colors[2] = 5;
-	        mockReadParameters.colors[3] = 1;
-	        mockReadParameters.colors[4] = 0;
-	        mockReadParameters.read_parameters(p1);
+	        m.code[0] = 0;
+	        m.code[1] = 2;
+	        m.code[2] = 5;
+	        m.code[3] = 1;
+	        m.code[4] = 0;
 	        
 	        mockReadParameters.colors = new int[5];
 	        mockReadParameters.colors[0] = 0;
@@ -339,17 +325,15 @@ public class testMasterMind {
 	        mockReadParameters.colors[4] = 4;
 	        mockReadParameters.read_parameters(p2);
 	        
-	        boolean res6=m.check_positions(p1, p2);
+	        boolean res6=m.check_positions(p2);
 	        assertFalse(res6);
 	        
 	        
-	        mockReadParameters.colors = new int[5];
-	        mockReadParameters.colors[0] = 0;
-	        mockReadParameters.colors[1] = 2;
-	        mockReadParameters.colors[2] = 5;
-	        mockReadParameters.colors[3] = 1;
-	        mockReadParameters.colors[4] = 0;
-	        mockReadParameters.read_parameters(p1);
+	        m.code[0] = 0;
+	        m.code[1] = 2;
+	        m.code[2] = 5;
+	        m.code[3] = 1;
+	        m.code[4] = 0;
 	        
 	        mockReadParameters.colors = new int[5];
 	        mockReadParameters.colors[0] = 0;
@@ -359,7 +343,7 @@ public class testMasterMind {
 	        mockReadParameters.colors[4] = 0;
 	        mockReadParameters.read_parameters(p2);
 	        
-	        boolean res7=m.check_positions(p1, p2);
+	        boolean res7=m.check_positions(p2);
 	        assertFalse(res7);
 	}
 	
