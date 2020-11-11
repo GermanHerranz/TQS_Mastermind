@@ -43,7 +43,7 @@ public class MasterMind {
 		}
 		return code;
 	}
-	boolean Player1(Player p) {
+	boolean Player1(Player p, Player p2) {
 		boolean find=true;
 		int i=0;
 		
@@ -59,7 +59,10 @@ public class MasterMind {
 			}
 		}
 		else {
+			find=check_positions(p2); //return false if the player2 didn't win
 			
+			turn(turn);
+			p.Save_Play(p.user_color, numPlays+1);
 		}
 			
 		
@@ -98,7 +101,7 @@ public class MasterMind {
 	boolean Play(Player p1, Player p2) {
 		boolean find=false; //check if the turn has been completly succesfull
 		if(turn==0) {
-			find=Player1(p1);
+			find=Player1(p1, p2);
 		}
 		else if(turn==1) {
 			find=Player2(p2);

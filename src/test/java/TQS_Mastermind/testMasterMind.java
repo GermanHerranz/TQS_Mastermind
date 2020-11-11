@@ -352,6 +352,7 @@ public class testMasterMind {
 		MasterMind m= new MasterMind();
 		
 		Player p1 = new Player(0);
+		Player p2=new Player(1);
 		m.code = new int[5];
 		m.code[0] = 0;
 		m.code[1] = 3;
@@ -359,7 +360,7 @@ public class testMasterMind {
 		m.code[3] = -1;
 		m.code[4] = 6;
 		
-		boolean res=m.Player1(p1);
+		boolean res=m.Player1(p1,p2);
 		assertFalse(res);
 	
 		m.code[0] = 0;
@@ -368,7 +369,7 @@ public class testMasterMind {
 		m.code[3] = 0;
 		m.code[4] = 4;
 		
-		boolean res1=m.Player1(p1);
+		boolean res1=m.Player1(p1,p2);
 		assertTrue(res1);	
 	}
 	
