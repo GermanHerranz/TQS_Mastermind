@@ -13,6 +13,7 @@ public class MasterMind {
 	int comparison[]= {};
 	int code[]= new int[5];
 	
+	
 	MasterMind(){
 		numPlays=12;
 		
@@ -100,11 +101,19 @@ public class MasterMind {
 	
 	boolean Play(Player p1, Player p2) {
 		boolean find=false; //check if the turn has been completly succesfull
-		if(turn==0) {
-			find=Player1(p1, p2);
+		if(numPlays>0) {
+			if(turn==0) {
+				find=Player1(p1, p2);
+			}
+			else if(turn==1) {
+				find=Player2(p2);
+			}
 		}
-		else if(turn==1) {
-			find=Player2(p2);
+		else {
+			if(turn==0) {
+				find=Player1(p1, p2);
+				
+			}
 		}
 		return find;
 		

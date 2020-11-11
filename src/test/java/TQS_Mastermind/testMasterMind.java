@@ -447,7 +447,9 @@ public class testMasterMind {
 		Player p1 = new Player(0);
 		Player p2 = new Player(1);
 		
+		//**************************************** PLAY 1 - check the game finish properly and all the data is saved properly ************************************************************
 		
+		//set the code 
 		m.code = new int[5];
 		m.code[0] = 0;
 		m.code[1] = 1;
@@ -458,9 +460,9 @@ public class testMasterMind {
 		
 		boolean res=m.Play(p1,p2);
 		assertTrue(res);          //first play of p1
+		assertEquals(m.turn, 1);
 		
-		
-		
+		//p2 play
 		mockReadParameters.colors = new int[5];
 		mockReadParameters.colors[0] = 1;
 		mockReadParameters.colors[1] = 7;
@@ -475,7 +477,7 @@ public class testMasterMind {
 		
 		//numPlays should be 12 'cause the play was incorrect
 		assertEquals(m.numPlays, 12);
-		
+		assertEquals(m.turn, 1); //turn shouldn't have changed
 		
 		//correct play of p2
 		mockReadParameters.colors = new int[5];
@@ -491,9 +493,15 @@ public class testMasterMind {
 		assertTrue(res2);      
 		
 		assertEquals(m.numPlays, 11);
+		assertEquals(m.turn, 0); 
+		
+		//p1 play
+		boolean res3=m.Play(p1, p2);
+		assertFalse(res3); //player2 didn't win
+		assertEquals(m.turn, 1); 
+		
 		
 		//check than the comparison was correct and saved
-		
 		int value1[] = new int[5];
         value1[0]=0;
         value1[1]=0;
@@ -504,30 +512,335 @@ public class testMasterMind {
         for(int i=0; i<m.code.length; i++) {
 			assertEquals(value1[i], m.comparison[i]);
 		}
+        
+        //incorrect play of p2
+        mockReadParameters.colors = new int[5];
+		mockReadParameters.colors[0] = -11;
+		mockReadParameters.colors[1] = 2;
+		mockReadParameters.colors[2] = -1;
+		mockReadParameters.colors[3] = 1;
+		mockReadParameters.colors[4] = 6;
 		
-		/*
-		mockReadParameters.colors = new String[5];
-		mockReadParameters.colors[0] = "red";
-		mockReadParameters.colors[1] = "yellow";
-		mockReadParameters.colors[2] = "black";
-		mockReadParameters.colors[3] = " ";
-		mockReadParameters.colors[4] = "orange!";
 		mockReadParameters.read_parameters(p2);
 		
-		boolean res2=m.Play(p1,p2);
-		assertTrue(res2);
+		boolean res4=m.Play(p1, p2);
+		assertFalse(res4);          
 		
+		//numPlays should be 11 'cause the play was incorrect
+		assertEquals(m.numPlays, 11);
+		assertEquals(m.turn, 1); //turn shouldn't have changed
 		
-		mockReadParameters.colors = new String[5];
-		mockReadParameters.colors[0] = "red";
-		mockReadParameters.colors[1] = "yellow";
-		mockReadParameters.colors[2] = "purple";
-		mockReadParameters.colors[3] = "red";
-		mockReadParameters.colors[4] = "orange";
+		//correct play of p2
+		mockReadParameters.colors = new int[5];
+		mockReadParameters.colors[0] = 1;
+		mockReadParameters.colors[1] = 2;
+		mockReadParameters.colors[2] = 1;
+		mockReadParameters.colors[3] = 1;
+		mockReadParameters.colors[4] = 1;
+		
 		mockReadParameters.read_parameters(p2);
 		
-		boolean res3=m.Play(p1, p2);
-		assertFalse(res3);*/
+		boolean res5=m.Play(p1, p2);
+		assertTrue(res5);          
+		
+		assertEquals(m.numPlays, 10);
+		assertEquals(m.turn, 0); 
+		
+		//p1 play
+		boolean res6=m.Play(p1, p2);
+		assertFalse(res6); //player2 didn't win
+		
+		assertEquals(m.turn, 1); 
+		
+		//check the comparison
+		value1[0]=0;
+        value1[1]=0;
+        value1[2]=0;
+        value1[3]=0;
+        value1[4]=0;
+        
+        for(int i=0; i<m.code.length; i++) {
+			assertEquals(value1[i], m.comparison[i]);
+		}
+        
+        //p2 play
+        mockReadParameters.colors = new int[5];
+		mockReadParameters.colors[0] = 1;
+		mockReadParameters.colors[1] = 2;
+		mockReadParameters.colors[2] = 1;
+		mockReadParameters.colors[3] = 1;
+		mockReadParameters.colors[4] = 1;
+		
+		mockReadParameters.read_parameters(p2);
+		
+		boolean res7=m.Play(p1, p2);
+		assertTrue(res7);          
+		
+		assertEquals(m.numPlays, 9);
+		assertEquals(m.turn, 0);
+		
+		//p1 play
+		boolean res8=m.Play(p1, p2);
+		assertFalse(res8); //player2 didn't win
+		
+		assertEquals(m.turn, 1); 
+		
+		//check the comparison
+		value1[0]=0;
+        value1[1]=0;
+        value1[2]=0;
+        value1[3]=0;
+        value1[4]=0;
+        
+        for(int i=0; i<m.code.length; i++) {
+			assertEquals(value1[i], m.comparison[i]);
+		}
+        
+        //p2 play
+        
+        //we use the data generated before with mockReadParameters.read_parameters(p2);
+		
+		boolean res9=m.Play(p1, p2);
+		assertTrue(res9);          
+		
+		assertEquals(m.numPlays, 8);
+		assertEquals(m.turn, 0);
+		
+		//p1 play
+		
+		//we use the data generated before
+		
+		boolean res10=m.Play(p1, p2);
+		assertFalse(res10); //player2 didn't win
+		
+		assertEquals(m.turn, 1); 
+		
+		//check the comparison
+        
+        for(int i=0; i<m.code.length; i++) {
+			assertEquals(value1[i], m.comparison[i]);
+		}
+        
+        //p2 play
+        
+        //we use the data generated before with mockReadParameters.read_parameters(p2);
+		
+		boolean res11=m.Play(p1, p2);
+		assertTrue(res11);          
+		
+		assertEquals(m.numPlays, 7);
+		assertEquals(m.turn, 0);
+		
+		//p1 play
+		
+		//we use the data generated before
+		
+		boolean res12=m.Play(p1, p2);
+		assertFalse(res12); //player2 didn't win
+		
+		assertEquals(m.turn, 1); 
+		
+		//check the comparison
+        
+        for(int i=0; i<m.code.length; i++) {
+			assertEquals(value1[i], m.comparison[i]);
+		}
+        
+		//p2 play
+        
+        //we use the data generated before with mockReadParameters.read_parameters(p2);
+		
+		boolean res13=m.Play(p1, p2);
+		assertTrue(res13);          
+		
+		assertEquals(m.numPlays, 6);
+		assertEquals(m.turn, 0);
+		
+		//p1 play
+		
+		//we use the data generated before
+		
+		boolean res14=m.Play(p1, p2);
+		assertFalse(res14); //player2 didn't win
+		
+		assertEquals(m.turn, 1); 
+		
+		//check the comparison
+        
+        for(int i=0; i<m.code.length; i++) {
+			assertEquals(value1[i], m.comparison[i]);
+		}
+		
+		//p2 play
+        
+        //we use the data generated before with mockReadParameters.read_parameters(p2);
+		
+		boolean res15=m.Play(p1, p2);
+		assertTrue(res15);          
+		
+		assertEquals(m.numPlays, 5);
+		assertEquals(m.turn, 0);
+		
+		//p1 play
+		
+		//we use the data generated before
+		
+		boolean res16=m.Play(p1, p2);
+		assertFalse(res16); //player2 didn't win
+		
+		assertEquals(m.turn, 1); 
+		
+		//check the comparison
+        
+        for(int i=0; i<m.code.length; i++) {
+			assertEquals(value1[i], m.comparison[i]);
+		}
+		
+		//p2 play
+        
+        //we use the data generated before with mockReadParameters.read_parameters(p2);
+		
+		boolean res17=m.Play(p1, p2);
+		assertTrue(res17);          
+		
+		assertEquals(m.numPlays, 4);
+		assertEquals(m.turn, 0);
+		
+		
+		//p1 play
+		
+		//we use the data generated before
+		
+		boolean res18=m.Play(p1, p2);
+		assertFalse(res18); //player2 didn't win
+		
+		assertEquals(m.turn, 1); 
+		
+		//check the comparison
+        
+        for(int i=0; i<m.code.length; i++) {
+			assertEquals(value1[i], m.comparison[i]);
+		}
+		
+		//p2 play
+        
+        //we use the data generated before with mockReadParameters.read_parameters(p2);
+		
+		boolean res19=m.Play(p1, p2);
+		assertTrue(res19);          
+		
+		assertEquals(m.numPlays, 3);
+		assertEquals(m.turn, 0);
+		
+		
+		//p1 play
+		
+		//we use the data generated before
+		
+		boolean res20=m.Play(p1, p2);
+		assertFalse(res20); //player2 didn't win
+		
+		assertEquals(m.turn, 1); 
+		
+		//check the comparison
+        
+        for(int i=0; i<m.code.length; i++) {
+			assertEquals(value1[i], m.comparison[i]);
+		}
+		
+		//p2 play
+        
+        //we use the data generated before with mockReadParameters.read_parameters(p2);
+		
+		boolean res21=m.Play(p1, p2);
+		assertTrue(res21);          
+		
+		assertEquals(m.numPlays, 2);
+		assertEquals(m.turn, 0);
+		
+		
+		//p1 play
+		
+		//we use the data generated before
+		
+		boolean res22=m.Play(p1, p2);
+		assertFalse(res22); //player2 didn't win
+		
+		assertEquals(m.turn, 1); 
+		
+		//check the comparison
+        
+        for(int i=0; i<m.code.length; i++) {
+			assertEquals(value1[i], m.comparison[i]);
+		}
+		
+		//p2 play
+        
+        //we use the data generated before with mockReadParameters.read_parameters(p2);
+		
+		boolean res23=m.Play(p1, p2);
+		assertTrue(res23);          
+		
+		assertEquals(m.numPlays, 1);
+		assertEquals(m.turn, 0);
+		
+		
+		//p1 play
+		
+		//we use the data generated before
+		
+		boolean res24=m.Play(p1, p2);
+		assertFalse(res24); //player2 didn't win
+		
+		assertEquals(m.turn, 1); 
+		
+		//check the comparison
+        
+        for(int i=0; i<m.code.length; i++) {
+			assertEquals(value1[i], m.comparison[i]);
+		}
+		
+		//p2 play
+        
+        //we use the data generated before with mockReadParameters.read_parameters(p2);
+		
+		boolean res25=m.Play(p1, p2);
+		assertTrue(res25);          
+		
+		assertEquals(m.numPlays, 0);
+		assertEquals(m.turn, 0);
+		
+		//p1 play
+		
+		//we use the data generated before
+		
+		boolean res26=m.Play(p1, p2);
+		assertFalse(res26); //player2 didn't win
+		
+		assertEquals(m.turn, 1); 
+		
+		//check the comparison
+        
+        for(int i=0; i<m.code.length; i++) {
+			assertEquals(value1[i], m.comparison[i]);
+		}
+        
+        
+        //check that the game finished correctly
+        boolean res27=m.Play(p1, p2);
+		assertFalse(res27);          
+		
+		assertEquals(m.numPlays, 0);
+		assertEquals(m.turn, 1);
+		
+		boolean res28=m.Play(p1, p2);
+		assertFalse(res28);          
+		
+		assertEquals(m.numPlays, 0);
+		assertEquals(m.turn, 1);
+        
+        
+		
 	}
 	
 }
