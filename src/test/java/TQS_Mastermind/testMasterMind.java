@@ -437,35 +437,74 @@ public class testMasterMind {
 		assertEquals(m.numPlays,0); //incorrect values like -1 are checked in other tests, like test_Play
 	}
 	
-	/*@Test
+	@Test
 	public void test_Play() {
 		MasterMind m= new MasterMind();
 		MockReadParameters mockReadParameters = new MockReadParameters();
+		
+		
 		Player p1 = new Player(0);
 		Player p2 = new Player(1);
-		mockReadParameters.colors = new String[5];
-		mockReadParameters.colors[0] = "red";
-		mockReadParameters.colors[1] = "yellow";
-		mockReadParameters.colors[2] = "black";
-		mockReadParameters.colors[3] = " ";
-		mockReadParameters.colors[4] = "orange!";
-		mockReadParameters.read_parameters(p1);
+		
+		
+		m.code = new int[5];
+		m.code[0] = 0;
+		m.code[1] = 1;
+		m.code[2] = 2;
+		m.code[3] = 2;
+		m.code[4] = 3;
+		
 		
 		boolean res=m.Play(p1,p2);
-		assertTrue(res);
+		assertTrue(res);          //first play of p1
 		
 		
-		mockReadParameters.colors = new String[5];
-		mockReadParameters.colors[0] = "red";
-		mockReadParameters.colors[1] = "yellow";
-		mockReadParameters.colors[2] = "purple";
-		mockReadParameters.colors[3] = "red";
-		mockReadParameters.colors[4] = "orange";
-		mockReadParameters.read_parameters(p1);
+		
+		mockReadParameters.colors = new int[5];
+		mockReadParameters.colors[0] = 1;
+		mockReadParameters.colors[1] = 7;
+		mockReadParameters.colors[2] = 4;
+		mockReadParameters.colors[3] = 1;
+		mockReadParameters.colors[4] = 3;
+		
+		mockReadParameters.read_parameters(p2);
 		
 		boolean res1=m.Play(p1, p2);
-		assertFalse(res1);
+		assertFalse(res1);           //first play of p2
 		
+		//numPlays should be 12 'cause the play was incorrect
+		assertEquals(m.numPlays, 12);
+		
+		
+		//correct play of p2
+		mockReadParameters.colors = new int[5];
+		mockReadParameters.colors[0] = 1;
+		mockReadParameters.colors[1] = 2;
+		mockReadParameters.colors[2] = 4;
+		mockReadParameters.colors[3] = 1;
+		mockReadParameters.colors[4] = 3;
+		
+		mockReadParameters.read_parameters(p2);
+		
+		boolean res2=m.Play(p1, p2);
+		assertTrue(res2);      
+		
+		assertEquals(m.numPlays, 11);
+		
+		//check than the comparison was correct and saved
+		
+		int value1[] = new int[5];
+        value1[0]=0;
+        value1[1]=0;
+        value1[2]=-1;
+        value1[3]=0;
+        value1[4]=1;
+        
+        for(int i=0; i<m.code.length; i++) {
+			assertEquals(value1[i], m.comparison[i]);
+		}
+		
+		/*
 		mockReadParameters.colors = new String[5];
 		mockReadParameters.colors[0] = "red";
 		mockReadParameters.colors[1] = "yellow";
@@ -487,7 +526,7 @@ public class testMasterMind {
 		mockReadParameters.read_parameters(p2);
 		
 		boolean res3=m.Play(p1, p2);
-		assertFalse(res3);
-	}*/
+		assertFalse(res3);*/
+	}
 	
 }
