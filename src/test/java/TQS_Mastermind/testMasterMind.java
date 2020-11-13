@@ -70,6 +70,7 @@ public class testMasterMind {
 		MockRandomNumbers mockrandomnumbers= new MockRandomNumbers();
 		MasterMind m= new MasterMind();
 		Player p= new Player(0);
+		Player p2= new Player(1);
 		
 		mockrandomnumbers.array = new int[5];
 		mockrandomnumbers.array[0] = 0;
@@ -101,7 +102,33 @@ public class testMasterMind {
 		for(int i=0; i<mockrandomnumbers.array.length; i++) {
 			boolean value2=m.check_parameters(mockrandomnumbers.array[i]);
 			assertTrue(value2);
-		}	
+		}
+		
+		mockrandomnumbers.array[0] = 0;
+		mockrandomnumbers.array[1] = 3;
+		mockrandomnumbers.array[2] = 5;
+		mockrandomnumbers.array[3] = 4;
+		mockrandomnumbers.array[4] = 2;
+		boolean res2 = mockrandomnumbers.random_numbers(p2, m);
+		assertFalse(res2);
+		
+		mockrandomnumbers.array[0] = 0;
+		mockrandomnumbers.array[1] = 3;
+		mockrandomnumbers.array[2] = 5;
+		mockrandomnumbers.array[3] = 4;
+		mockrandomnumbers.array[4] = 2;
+		m.numPlays();
+		boolean res3 = mockrandomnumbers.random_numbers(p, m);
+		assertFalse(res3);
+		
+		mockrandomnumbers.array[0] = 0;
+		mockrandomnumbers.array[1] = 3;
+		mockrandomnumbers.array[2] = 5;
+		mockrandomnumbers.array[3] = 4;
+		mockrandomnumbers.array[4] = 2;
+		m.numPlays();
+		boolean res4 = mockrandomnumbers.random_numbers(p2, m);
+		assertFalse(res4);
 	}
 	
 	@Test
