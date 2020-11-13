@@ -34,6 +34,7 @@ public class MockTestGame {
 					mRead.colors[2]= r.nextInt(6);
 					mRead.colors[3]= r.nextInt(6);
 					mRead.colors[4]= r.nextInt(6);
+					mRead.read_parameters(p2);
 				}
 				
 			}

@@ -3,19 +3,12 @@ package models;
 
 public class Player {
 	public int id_player;
-	int user_color[]= {};
+	public int user_color[]= {};
 	Play save_play[]= {};
 	
 	
 	public Player(int id) {
 		id_player = id;
-
-		user_color = new int[5];
-		user_color[0] = 0;
-		user_color[1] = 0;
-		user_color[2] = 0;
-		user_color[3] = 0;
-		user_color[4] = 0;
 		
 		save_play = new Play[12];
 		for(int i=0; i<12; i++) {

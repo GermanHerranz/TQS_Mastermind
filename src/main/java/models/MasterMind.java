@@ -1,5 +1,9 @@
 package models;
 
+import java.io.BufferedReader;
+import java.io.Console;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.*;
 
 import com.google.common.primitives.Ints;
@@ -25,19 +29,23 @@ public class MasterMind {
 		comparison[3] = 0;
 		comparison[4] = 0;
 	}
-	public void read_parameters(Player player){
-		Scanner in = new Scanner(System.in);
-		int color;
-		for(int i=0; i<5; i++) {
-			
-			color = in.nextInt();
-			
-			player.set_userColorPosition (i, color); 
+	public void read_parameters(Player player) throws IOException {
+		
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String s_color = br.readLine();
+		String[] a_scolor = s_color.split(" ");
+		
+		/*Scanner in = new Scanner(System.in);
+		String s_color[]= in.nextLine().split(" ");
+		in.close();*/
+		int color[]=new int[a_scolor.length];
+		for(int i =0 ;i < a_scolor.length;i++){
+		    color[i]= Integer.parseInt(a_scolor[i]);
+		    player.set_userColorPosition (i, color[i]);
+		    System.out.println(color[i]);
 		}
-		
-		in.close();
-		
 	}
+
 	public int[] generate_code() {
 		for(int i=0; i<5; i++) {
 			Random r= new Random();
@@ -62,7 +70,7 @@ public class MasterMind {
 			find=check_positions(p2); //return false if the player2 didn't win
 			
 			turn(turn);
-			p.Save_Play(p.user_color, numPlays+1);
+			p.Save_Play(comparison, numPlays+1);
 		}
 			
 		
@@ -72,21 +80,26 @@ public class MasterMind {
 	public boolean Player2(Player p) {
 		boolean find=true;
 		int i=0;
-		while(find && i<5) {
-			find=check_parameters(p.get_userColorPosition(i));
-			i=i+1;
-		}
-		if(find) {
-			turn(turn);
-			numPlays();
+		if (p.user_color.length == 5) {
+			while(find && i<5) {
+				find=check_parameters(p.get_userColorPosition(i));
+				i=i+1;
+			}
+			if(find) {
+				turn(turn);
+				numPlays();
+			}
+			else {
+				System.out.println("Player2: Upps the sequence was wrong! Enter a new one with valid numbers");
+				//read_parameters(p);
+				//Player2(p);
+			}
 		}
 		else {
-			System.out.println("Player2: Upps the sequence was wrong! Enter a new one with the accepted colors: red, blue, orange, green, yellow or purple");
-			//read_parameters(p);
-			//Player2(p);
+			System.out.println("Player2: Upps the sequence was wrong! Enter five numbers");
 		}
-	
 		
+	
 		return find;
 	}
 	

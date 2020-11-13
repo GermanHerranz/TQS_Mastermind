@@ -11,6 +11,7 @@ public class testPlayer {
 	@Test
 	public void test_SetAndGetPlayer() {
 		Player p= new Player(0);
+		p.user_color = new int [5];
 		p.set_userColorPosition(0, 0);
 		assertEquals(p.get_userColorPosition(0), 0);
 		

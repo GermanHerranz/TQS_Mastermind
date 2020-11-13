@@ -1,6 +1,8 @@
 package controller;
 
 
+import java.io.IOException;
+
 import models.MasterMind;
 import models.Player;
 
@@ -9,7 +11,7 @@ public class main_controller {
 	Player p1;
 	Player p2;
 	
-	public void main() {
+	public void controller() throws IOException {
 		boolean find= false;
 		m = new MasterMind();
 		p1 = new Player(0);
@@ -21,6 +23,7 @@ public class main_controller {
 			}
 			else {
 				if(m.turn==1) {
+					System.out.println("ESCRIU");
 					m.read_parameters(p2);
 				}
 				
