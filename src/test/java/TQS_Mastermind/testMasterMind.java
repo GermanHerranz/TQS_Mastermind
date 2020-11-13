@@ -350,27 +350,73 @@ public class testMasterMind {
 	@Test
 	public void test_Player1() {
 		MasterMind m= new MasterMind();
+		MockRandomNumbers mockRandomNumbers = new MockRandomNumbers();
 		
 		Player p1 = new Player(0);
 		Player p2=new Player(1);
-		m.code = new int[5];
-		m.code[0] = 0;
-		m.code[1] = 3;
-		m.code[2] = 7;
-		m.code[3] = -1;
-		m.code[4] = 6;
 		
-		boolean res=m.Player1(p1,p2);
-		assertFalse(res);
-	
-		m.code[0] = 0;
-		m.code[1] = 3;
-		m.code[2] = 5;
-		m.code[3] = 0;
-		m.code[4] = 4;
+		mockRandomNumbers.array = new int[5];
+		mockRandomNumbers.array[0] = 8;
+		mockRandomNumbers.array[1] = 0;
+		mockRandomNumbers.array[2] = 4;
+		mockRandomNumbers.array[3] = 1;
+		mockRandomNumbers.array[4] = 2;
 		
+		mockRandomNumbers.random_numbers(p1, m);
 		boolean res1=m.Player1(p1,p2);
-		assertTrue(res1);	
+		assertFalse(res1);
+		
+		mockRandomNumbers.array = new int[5];
+		mockRandomNumbers.array[0] = 0;
+		mockRandomNumbers.array[1] = -3;
+		mockRandomNumbers.array[2] = 2;
+		mockRandomNumbers.array[3] = 2;
+		mockRandomNumbers.array[4] = 2;
+		
+		mockRandomNumbers.random_numbers(p1, m);
+		boolean res2=m.Player1(p1,p2);
+		assertFalse(res2);
+		
+		mockRandomNumbers.array = new int[5];
+		mockRandomNumbers.array[0] = 0;
+		mockRandomNumbers.array[1] = 3;
+		mockRandomNumbers.array[2] = 7;
+		mockRandomNumbers.array[3] = 2;
+		mockRandomNumbers.array[4] = 3;
+		
+		mockRandomNumbers.random_numbers(p1, m);
+		boolean res3=m.Player1(p1,p2);
+		assertFalse(res3);
+		
+		mockRandomNumbers.array[0] = 0;
+		mockRandomNumbers.array[1] = 3;
+		mockRandomNumbers.array[2] = 5;
+		mockRandomNumbers.array[3] = 6;
+		mockRandomNumbers.array[4] = 4;
+		
+		mockRandomNumbers.random_numbers(p1, m);
+		boolean res4=m.Player1(p1,p2);
+		assertFalse(res4);
+	
+		mockRandomNumbers.array[0] = 0;
+		mockRandomNumbers.array[1] = 3;
+		mockRandomNumbers.array[2] = 5;
+		mockRandomNumbers.array[3] = 0;
+		mockRandomNumbers.array[4] = 8;
+		
+		mockRandomNumbers.random_numbers(p1, m);
+		boolean res5=m.Player1(p1,p2);
+		assertFalse(res5);
+		
+		mockRandomNumbers.array[0] = 0;
+		mockRandomNumbers.array[1] = 3;
+		mockRandomNumbers.array[2] = 5;
+		mockRandomNumbers.array[3] = 0;
+		mockRandomNumbers.array[4] = 4;
+		
+		mockRandomNumbers.random_numbers(p1, m);
+		boolean res6=m.Player1(p1,p2);
+		assertTrue(res6);
 	}
 	
 	@Test

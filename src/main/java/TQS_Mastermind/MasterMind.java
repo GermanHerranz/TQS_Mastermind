@@ -11,11 +11,12 @@ public class MasterMind {
 	int turn=0;
 	int numPlays;
 	int comparison[]= {};
-	int code[]= new int[5];
+	int code[];
 	
 	
 	MasterMind(){
 		numPlays=12;
+		code = new int[5];
 		
 		comparison = new int[5];
 		comparison[0] = 0;
@@ -49,14 +50,12 @@ public class MasterMind {
 		int i=0;
 		
 		if(numPlays==12) {
-			if(code.length == 5) {
-				while(find && i<5) {
-					find=(check_parameters(code[i])); //if the color is correct return true
-					i=i+1;
-				}
-				if(find) {
-					turn(turn);
-				}
+			while(find && i<5) {
+				find=(check_parameters(code[i])); //if the color is correct return true
+				i=i+1;
+			}
+			if(find) {
+				turn(turn);
 			}
 		}
 		else {
@@ -73,28 +72,20 @@ public class MasterMind {
 	boolean Player2(Player p) {
 		boolean find=true;
 		int i=0;
-		if(p.user_color.length == 5) {
-			while(find && i<5) {
-				find=check_parameters(p.get_userColorPosition(i));
-				i=i+1;
-			}
-			if(find) {
-				turn(turn);
-				numPlays();
-			}
-			else {
-				System.out.println("Player2: Upps the sequence was wrong! Enter a new one with the accepted colors: red, blue, orange, green, yellow or purple");
-				//read_parameters(p);
-				//Player2(p);
-			}
-			
+		while(find && i<5) {
+			find=check_parameters(p.get_userColorPosition(i));
+			i=i+1;
 		}
-		
+		if(find) {
+			turn(turn);
+			numPlays();
+		}
 		else {
-			System.out.println("Player2: Upps!! Enter 5 colors please!!");
+			System.out.println("Player2: Upps the sequence was wrong! Enter a new one with the accepted colors: red, blue, orange, green, yellow or purple");
 			//read_parameters(p);
 			//Player2(p);
 		}
+	
 		
 		return find;
 	}

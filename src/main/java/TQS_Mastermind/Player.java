@@ -25,14 +25,14 @@ public class Player {
 	}
 	
 	public int get_userColorPosition (int position) {
-		if (position >= 0 && position < user_color.length && (id_player==0 || id_player==1))
+		if (position >= 0 && position < user_color.length)
 			return user_color[position];
 		else
 			return -1;
 	}
 	
 	public void set_userColorPosition (int position, int color) {
-		if ((id_player == 0 || id_player==1) && position >= 0 && position < user_color.length)
+		if (position >= 0 && position < user_color.length)
 			user_color[position] = color;
 	}
 	

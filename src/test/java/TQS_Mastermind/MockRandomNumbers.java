@@ -10,7 +10,7 @@ public class MockRandomNumbers {
 		if (player.id_player == 0 && md.numPlays==12)
 		{
 			for(int i=0; i<5; i++) {
-				player.set_userColorPosition (i, array[i]);
+				md.code[i] = array[i];
 				find = true;
 			}	
 		}
