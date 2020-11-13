@@ -955,9 +955,15 @@ public class testMasterMind {
 		
 		assertEquals(m.numPlays, 0);
 		assertEquals(m.turn, 1);
-        
-        
 		
+	}
+	
+	@Test 
+	
+	public void test_Game() {
+		MockTestGame mT= new MockTestGame();
+		boolean res=mT.Game();
+		assertTrue(res);
 	}
 	
 }
