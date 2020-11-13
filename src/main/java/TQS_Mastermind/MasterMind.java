@@ -107,7 +107,7 @@ public class MasterMind {
 			}
 		}
 		return find;
-		
+		 
 	}
 	int turn(int t) {
 		if(t==0) {
