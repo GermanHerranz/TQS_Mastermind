@@ -1,8 +1,8 @@
-package TQS_Mastermind;
+package models;
 
 
 public class Player {
-	int id_player;
+	public int id_player;
 	int user_color[]= {};
 	Play save_play[]= {};
 	

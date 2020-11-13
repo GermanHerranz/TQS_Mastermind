@@ -1,4 +1,4 @@
-package TQS_Mastermind;
+package models;
 
 public class Play {
 	
@@ -23,7 +23,6 @@ public class Play {
     }
     
     public int[] get_play() {
-        System.out.println("PLAY: " + play);
         return play;
     }
     

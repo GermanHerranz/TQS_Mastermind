@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import TQS_Mastermind.MockRandomNumbers;
-import TQS_Mastermind.Play;
+import models.Play;
 
 public class testPlay {
 	@Test

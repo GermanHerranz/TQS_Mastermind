@@ -1,5 +1,7 @@
 package TQS_Mastermind;
 
+import models.Player;
+
 public class MockReadParameters {
 	
 	public int colors[];

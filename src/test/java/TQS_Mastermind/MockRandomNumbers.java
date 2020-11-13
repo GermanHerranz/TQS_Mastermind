@@ -1,5 +1,8 @@
 package TQS_Mastermind;
 
+import models.MasterMind;
+import models.Player;
+
 public class MockRandomNumbers {
 	
 	public int array[] = new int[5];

@@ -2,6 +2,9 @@ package TQS_Mastermind;
 
 import java.util.Random;
 
+import models.MasterMind;
+import models.Player;
+
 public class MockTestGame {
 	MockRandomNumbers mRandom;
 	MockReadParameters mRead;

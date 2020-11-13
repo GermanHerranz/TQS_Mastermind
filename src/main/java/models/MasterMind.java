@@ -1,4 +1,4 @@
-package TQS_Mastermind;
+package models;
 
 import java.util.*;
 
@@ -8,13 +8,13 @@ import com.google.common.primitives.Ints;
 
 public class MasterMind {
     int colors []= {0, 1, 2, 3, 4, 5};
-	int turn=0;
-	int numPlays;
-	int comparison[]= {};
-	int code[];
+	public int turn=0;
+	public int numPlays;
+	public int comparison[]= {};
+	public int code[];
 	
 	
-	MasterMind(){
+	public MasterMind(){
 		numPlays=12;
 		code = new int[5];
 		
@@ -25,7 +25,7 @@ public class MasterMind {
 		comparison[3] = 0;
 		comparison[4] = 0;
 	}
-	void read_parameters(Player player){
+	public void read_parameters(Player player){
 		Scanner in = new Scanner(System.in);
 		int color;
 		for(int i=0; i<5; i++) {
@@ -38,14 +38,14 @@ public class MasterMind {
 		in.close();
 		
 	}
-	int[] generate_code() {
+	public int[] generate_code() {
 		for(int i=0; i<5; i++) {
 			Random r= new Random();
 			code[i]=r.nextInt(6);
 		}
 		return code;
 	}
-	boolean Player1(Player p, Player p2) {
+	public boolean Player1(Player p, Player p2) {
 		boolean find=true;
 		int i=0;
 		
@@ -69,7 +69,7 @@ public class MasterMind {
 		return find;
 	}
 	
-	boolean Player2(Player p) {
+	public boolean Player2(Player p) {
 		boolean find=true;
 		int i=0;
 		while(find && i<5) {
@@ -90,7 +90,7 @@ public class MasterMind {
 		return find;
 	}
 	
-	boolean Play(Player p1, Player p2) {
+	public boolean Play(Player p1, Player p2) {
 		boolean find=false; //check if the turn has been completly succesfull
 		if(numPlays>0) {
 			if(turn==0) {
@@ -109,7 +109,7 @@ public class MasterMind {
 		return find;
 		 
 	}
-	int turn(int t) {
+	public int turn(int t) {
 		if(t==0) {
 			turn=1;
 		}
@@ -119,12 +119,12 @@ public class MasterMind {
 		return turn;
 	}
 	
-	int numPlays() {
+	public int numPlays() {
 		numPlays=numPlays-1;
 		return numPlays;
 	}
 	
-	boolean check_parameters(int color) {
+	public boolean check_parameters(int color) {
 		
 		boolean find=false;
 
@@ -134,7 +134,7 @@ public class MasterMind {
 		return find;
 	}
 	
-	boolean check_positions(Player p2) {
+	public boolean check_positions(Player p2) {
 		boolean same=true;
         int length = code.length;
         int i=0;
