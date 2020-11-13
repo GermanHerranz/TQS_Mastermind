@@ -425,17 +425,61 @@ public class testMasterMind {
 		
 		MockReadParameters mockReadParameters = new MockReadParameters();
 		Player p2 = new Player(1);
+		
 		mockReadParameters.colors = new int[5];
-		mockReadParameters.colors[0] = 0;
+		mockReadParameters.colors[0] = 8;
 		mockReadParameters.colors[1] = 3;
-		mockReadParameters.colors[2] = 7;
-		mockReadParameters.colors[3] = -1;
-		mockReadParameters.colors[4] = 6;
+		mockReadParameters.colors[2] = 4;
+		mockReadParameters.colors[3] = 1;
+		mockReadParameters.colors[4] = 2;
 		mockReadParameters.read_parameters(p2);
 		
-		boolean res=m.Player2(p2);
-		assertFalse(res);
+		boolean res1=m.Player2(p2);
+		assertFalse(res1);
 		
+		mockReadParameters.colors = new int[5];
+		mockReadParameters.colors[0] = 3;
+		mockReadParameters.colors[1] = 8;
+		mockReadParameters.colors[2] = 4;
+		mockReadParameters.colors[3] = 1;
+		mockReadParameters.colors[4] = 2;
+		mockReadParameters.read_parameters(p2);
+		
+		boolean res2=m.Player2(p2);
+		assertFalse(res2);
+		
+		mockReadParameters.colors = new int[5];
+		mockReadParameters.colors[0] = 3;
+		mockReadParameters.colors[1] = 4;
+		mockReadParameters.colors[2] = 8;
+		mockReadParameters.colors[3] = 1;
+		mockReadParameters.colors[4] = 2;
+		mockReadParameters.read_parameters(p2);
+		
+		boolean res3=m.Player2(p2);
+		assertFalse(res3);
+		
+		mockReadParameters.colors = new int[5];
+		mockReadParameters.colors[0] = 3;
+		mockReadParameters.colors[1] = 4;
+		mockReadParameters.colors[2] = 1;
+		mockReadParameters.colors[3] = 8;
+		mockReadParameters.colors[4] = 2;
+		mockReadParameters.read_parameters(p2);
+		
+		boolean res4=m.Player2(p2);
+		assertFalse(res4);
+		
+		mockReadParameters.colors = new int[5];
+		mockReadParameters.colors[0] = 3;
+		mockReadParameters.colors[1] = 4;
+		mockReadParameters.colors[2] = 2;
+		mockReadParameters.colors[3] = 1;
+		mockReadParameters.colors[4] = 8;
+		mockReadParameters.read_parameters(p2);
+		
+		boolean res5=m.Player2(p2);
+		assertFalse(res5);
 		
 		mockReadParameters.colors = new int[5];
 		mockReadParameters.colors[0] = 0;
@@ -445,8 +489,8 @@ public class testMasterMind {
 		mockReadParameters.colors[4] = 4;
 		mockReadParameters.read_parameters(p2);
 		
-		boolean res1=m.Player2(p2);
-		assertTrue(res1);
+		boolean res6=m.Player2(p2);
+		assertTrue(res6);
 		
 		assertEquals(m.numPlays,11);
 		
