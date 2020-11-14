@@ -87,7 +87,6 @@ public class MasterMind {
 		boolean find=true;
 		int i=0;
 		if (p.user_color.length == 5) {
-			//wrong_size=false;
 			while(find && i<5) {
 				find=check_parameters(p.get_userColorPosition(i));
 				i=i+1;
@@ -97,7 +96,6 @@ public class MasterMind {
 				num=12-numPlays;
 				numPlays();
 				p.Save_Play(p.user_color, num);
-				//wrong_numbers=false;
 			}
 			else {
 				wrong_numbers=true;
@@ -114,7 +112,7 @@ public class MasterMind {
 	
 	public boolean Play(Player p1, Player p2) {
 		boolean find=false; //check if the turn has been completly succesfull
-		if(numPlays>0) {
+		if(numPlays>0 && numPlays<13) {
 			if(turn==0) {
 				find=Player1(p1, p2);
 			}
@@ -123,7 +121,7 @@ public class MasterMind {
 			}
 		}
 		else {
-			if(turn==0) {
+			if(turn==0 && numPlays==0) {
 				find=Player1(p1, p2);
 				
 			}

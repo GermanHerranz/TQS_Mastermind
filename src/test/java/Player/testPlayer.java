@@ -12,12 +12,15 @@ public class testPlayer {
 	public void test_SetAndGetPlayer() {
 		Player p= new Player(0);
 		p.user_color = new int [5];
+		
+		//Check boundary values (position). Equivalent partitions
 		p.set_userColorPosition(0, 0);
 		assertEquals(p.get_userColorPosition(0), 0);
 		
 		p.set_userColorPosition(4, 3);
 		assertEquals(p.get_userColorPosition(4), 3);
 		
+		//Check limit values (position). Equivalent partitions
 		p.set_userColorPosition(5, 3);
 		assertEquals(p.get_userColorPosition(5), -1);
 		
@@ -30,6 +33,7 @@ public class testPlayer {
 		Player p1= new Player(0);				
 		MockRandomNumbers mockrandomnumbers= new MockRandomNumbers();
 		
+		//Check boundary values (position). Equivalent partitions
 		mockrandomnumbers.array = new int[5];
 		mockrandomnumbers.array[0] = 0;
 		mockrandomnumbers.array[1] = 3;
@@ -59,6 +63,7 @@ public class testPlayer {
 			assertEquals(res2[i], mockrandomnumbers.array[i]);
 		}
 		
+		//Check limit values (position). Equivalent partitions
 		mockrandomnumbers.array = new int[5];
 		mockrandomnumbers.array[0] = 3;
 		mockrandomnumbers.array[1] = 3;
