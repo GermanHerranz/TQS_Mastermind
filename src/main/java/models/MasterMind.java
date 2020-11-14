@@ -1,7 +1,6 @@
 package models;
 
 import java.io.BufferedReader;
-import java.io.Console;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
@@ -16,6 +15,9 @@ public class MasterMind {
 	public int numPlays;
 	public int comparison[]= {};
 	public int code[];
+	
+	public boolean wrong_numbers =false;
+	public boolean wrong_size= false;
 	
 	
 	public MasterMind(){
@@ -34,16 +36,19 @@ public class MasterMind {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String s_color = br.readLine();
 		String[] a_scolor = s_color.split(" ");
-		
-		/*Scanner in = new Scanner(System.in);
-		String s_color[]= in.nextLine().split(" ");
-		in.close();*/
+		String regex="[0-9]+";
 		int color[]=new int[a_scolor.length];
+		player.user_color=new int[a_scolor.length]; 
 		for(int i =0 ;i < a_scolor.length;i++){
-		    color[i]= Integer.parseInt(a_scolor[i]);
-		    player.set_userColorPosition (i, color[i]);
-		    System.out.println(color[i]);
+			if(a_scolor[i].matches(regex) ) {
+			    color[i]= Integer.parseInt(a_scolor[i]);
+			    player.set_userColorPosition (i, color[i]);
+			}
+			else {
+				wrong_numbers=true;
+			}
 		}
+		
 	}
 
 	public int[] generate_code() {
@@ -81,6 +86,7 @@ public class MasterMind {
 		boolean find=true;
 		int i=0;
 		if (p.user_color.length == 5) {
+			//wrong_size=false;
 			while(find && i<5) {
 				find=check_parameters(p.get_userColorPosition(i));
 				i=i+1;
@@ -88,15 +94,15 @@ public class MasterMind {
 			if(find) {
 				turn(turn);
 				numPlays();
+				//wrong_numbers=false;
 			}
 			else {
-				System.out.println("Player2: Upps the sequence was wrong! Enter a new one with valid numbers");
-				//read_parameters(p);
-				//Player2(p);
+				wrong_numbers=true;
 			}
 		}
 		else {
-			System.out.println("Player2: Upps the sequence was wrong! Enter five numbers");
+			wrong_size=true;
+			find=false;
 		}
 		
 	

@@ -12,7 +12,16 @@ public class view {
 						 {" ", " ", " ", " ", " ", "|", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", "|", " ", " ", " ", " ", " ", " ", " "},
 						 {" ", " ", " ", " ", " ", "|", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", "|", " ", " ", " ", " ", " ", " ", " "}};
 	
-	void show_board() {
+	public void show_board() {
 		
+	}
+	public void print_message_insert() {
+		System.out.println("Write below the code separated by spaces: ");
+	}
+	public void print_message_wrong_size() {
+		System.out.println("The size was wrong, write 5 numbers. ");
+	}
+	public void print_message_wrong_combination(){
+		System.out.println("The numbers were wrong, write numbers between 0 and 5.  ");
 	}
 }

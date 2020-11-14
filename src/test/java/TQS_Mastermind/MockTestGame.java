@@ -13,7 +13,7 @@ public class MockTestGame {
 		mRandom=new MockRandomNumbers();
 		mRead=new MockReadParameters();
 		
-		mRead.colors = new int[5];
+		mRead.colors = "";
 		mRandom.array = new int[5];
 	}
 	public boolean Game(MasterMind m, Player p1, Player p2) {
@@ -29,12 +29,9 @@ public class MockTestGame {
 			}
 			else {
 				if(m.turn==1) {
-					mRead.colors[0]= r.nextInt(6);
-					mRead.colors[1]= r.nextInt(6);
-					mRead.colors[2]= r.nextInt(6);
-					mRead.colors[3]= r.nextInt(6);
-					mRead.colors[4]= r.nextInt(6);
-					mRead.read_parameters(p2);
+					mRead.colors= ""+r.nextInt(6)+" "+r.nextInt(6)+" "+r.nextInt(6)+" "+r.nextInt(6)+" "+r.nextInt(6)+"";
+					
+					mRead.read_parameters(p2, m);
 				}
 				
 			}
