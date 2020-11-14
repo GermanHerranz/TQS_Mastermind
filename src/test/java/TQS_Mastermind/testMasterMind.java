@@ -250,11 +250,11 @@ public class testMasterMind {
 	        boolean res1=m.check_positions(p2);
 	        assertTrue(res1);
 	        int value1[] = new int[5];
-	        value1[0]=1;
-	        value1[1]=1;
-	        value1[2]=1;
-	        value1[3]=1;
-	        value1[4]=1;
+	        value1[0]=2;
+	        value1[1]=2;
+	        value1[2]=2;
+	        value1[3]=2;
+	        value1[4]=2;
 	        for(int i=0; i<mockReadParameters.color.length; i++) {
 				assertEquals(value1[i], m.comparison[i]);
 			}
@@ -272,11 +272,11 @@ public class testMasterMind {
 	        boolean res2=m.check_positions(p2);
 	        assertFalse(res2);
 	        int value2[] = new int[5];
-	        value2[0]=-1;
-	        value2[1]=1;
-	        value2[2]=1;
-	        value2[3]=1;
-	        value2[4]=1;
+	        value2[0]=0;
+	        value2[1]=2;
+	        value2[2]=2;
+	        value2[3]=2;
+	        value2[4]=2;
 	        for(int i=0; i<mockReadParameters.color.length; i++) {
 				assertEquals(value2[i], m.comparison[i]);
 			}
@@ -295,11 +295,11 @@ public class testMasterMind {
 	        boolean res3=m.check_positions(p2);
 	        assertFalse(res3);
 	        int value3[] = new int[5];
-	        value3[0]=1;
-	        value3[1]=0;
-	        value3[2]=1;
-	        value3[3]=1;
-	        value3[4]=1;
+	        value3[0]=2;
+	        value3[1]=1;
+	        value3[2]=2;
+	        value3[3]=2;
+	        value3[4]=2;
 	        for(int i=0; i<mockReadParameters.color.length; i++) {
 				assertEquals(value3[i], m.comparison[i]);
 			}
@@ -318,11 +318,11 @@ public class testMasterMind {
 	        boolean res4=m.check_positions(p2);
 	        assertFalse(res4);
 	        int value4[] = new int[5];
-	        value4[0]=1;
-	        value4[1]=1;
-	        value4[2]=0;
-	        value4[3]=1;
-	        value4[4]=1;
+	        value4[0]=2;
+	        value4[1]=2;
+	        value4[2]=1;
+	        value4[3]=2;
+	        value4[4]=2;
 	        for(int i=0; i<mockReadParameters.color.length; i++) {
 				assertEquals(value4[i], m.comparison[i]);
 			}
@@ -340,11 +340,11 @@ public class testMasterMind {
 	        boolean res5=m.check_positions(p2);
 	        assertFalse(res5);
 	        int value5[] = new int[5];
-	        value5[0]=1;
-	        value5[1]=1;
-	        value5[2]=-1;
-	        value5[3]=0;
-	        value5[4]=1;
+	        value5[0]=2;
+	        value5[1]=2;
+	        value5[2]=0;
+	        value5[3]=1;
+	        value5[4]=2;
 	        for(int i=0; i<mockReadParameters.color.length; i++) {
 				assertEquals(value5[i], m.comparison[i]);
 			}
@@ -637,11 +637,11 @@ public class testMasterMind {
 		
 		//check than the comparison was correct and saved
 		int value1[] = new int[5];
-        value1[0]=0;
-        value1[1]=0;
-        value1[2]=-1;
-        value1[3]=0;
-        value1[4]=1;
+        value1[0]=1;
+        value1[1]=1;
+        value1[2]=0;
+        value1[3]=1;
+        value1[4]=2;
         
         for(int i=0; i<m.code.length; i++) {
 			assertEquals(value1[i], m.comparison[i]);
@@ -679,11 +679,11 @@ public class testMasterMind {
 		assertEquals(m.turn, 1); 
 		
 		//check the comparison
-		value1[0]=0;
-        value1[1]=0;
-        value1[2]=0;
-        value1[3]=0;
-        value1[4]=0;
+		value1[0]=1;
+        value1[1]=1;
+        value1[2]=1;
+        value1[3]=1;
+        value1[4]=1;
         
         for(int i=0; i<m.code.length; i++) {
 			assertEquals(value1[i], m.comparison[i]);
@@ -708,11 +708,11 @@ public class testMasterMind {
 		assertEquals(m.turn, 1); 
 		
 		//check the comparison
-		value1[0]=0;
-        value1[1]=0;
-        value1[2]=0;
-        value1[3]=0;
-        value1[4]=0;
+		value1[0]=1;
+        value1[1]=1;
+        value1[2]=1;
+        value1[3]=1;
+        value1[4]=1;
         
         for(int i=0; i<m.code.length; i++) {
 			assertEquals(value1[i], m.comparison[i]);
@@ -1048,11 +1048,11 @@ public class testMasterMind {
 		
 		//check than the comparison was correct and saved
 		int value11[] = new int[5];
-        value11[0]=0;
-        value11[1]=0;
-        value11[2]=-1;
-        value11[3]=0;
-        value11[4]=1;
+        value11[0]=1;
+        value11[1]=1;
+        value11[2]=0;
+        value11[3]=1;
+        value11[4]=2;
         
         for(int i=0; i<m2.code.length; i++) {
 			assertEquals(value11[i], m2.comparison[i]);
@@ -1328,11 +1328,11 @@ public class testMasterMind {
 		assertEquals(m2.turn, 1); 
 		
 		//check the comparison
-		value11[0]=1;
-		value11[1]=1;
-		value11[2]=1;
-		value11[3]=1;
-		value11[4]=1;
+		value11[0]=2;
+		value11[1]=2;
+		value11[2]=2;
+		value11[3]=2;
+		value11[4]=2;
 				
         for(int i=0; i<m2.code.length; i++) {
 			assertEquals(value11[i], m2.comparison[i]);

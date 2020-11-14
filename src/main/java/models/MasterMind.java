@@ -18,6 +18,7 @@ public class MasterMind {
 	
 	public boolean wrong_numbers =false;
 	public boolean wrong_size= false;
+	public int num;
 	
 	
 	public MasterMind(){
@@ -75,7 +76,7 @@ public class MasterMind {
 			find=check_positions(p2); //return false if the player2 didn't win
 			
 			turn(turn);
-			p.Save_Play(comparison, numPlays+1);
+			p.Save_Play(comparison, num);
 		}
 			
 		
@@ -93,7 +94,9 @@ public class MasterMind {
 			}
 			if(find) {
 				turn(turn);
+				num=12-numPlays;
 				numPlays();
+				p.Save_Play(p.user_color, num);
 				//wrong_numbers=false;
 			}
 			else {
@@ -159,15 +162,15 @@ public class MasterMind {
         int i=0;
         while (i<length) {
 			if (code[i] == p2.user_color[i]) {
-            	comparison[i]=1;
+            	comparison[i]=2;
             }
             else {
             	same=false;
             	if(Ints.contains(code, p2.user_color[i])) {
-                	comparison[i]=0;
+                	comparison[i]=1;
             	}
             	else {
-                	comparison[i]=-1;
+                	comparison[i]=0;
             	}
             }
             i++;

@@ -18,7 +18,7 @@ public class main_controller {
 		p1 = new Player(0);
 		p2 = new Player(1);
 		v =new view();
-		
+		v.print_info();
 		while(!find && m.numPlays>=0) {
 			boolean play;
 			if(m.numPlays==12 && m.turn==0) {
@@ -42,12 +42,20 @@ public class main_controller {
 				v.print_message_wrong_size();
 				m.wrong_size=false;
 			}
+			else {
+				if(m.turn==1 && m.numPlays!=12) {
+					v.show_board(p1, p2, m);
+				}
+			}
 			
 			if(m.turn==1 && play && m.numPlays!=12 ) {
 				find=true;
+				v.print_win();
 			}
+			
 			if(m.turn==1 && m.numPlays==0 && !play) {
 				find=true;
+				v.print_lost();
 			}
 			
 		}
