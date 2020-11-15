@@ -87,7 +87,7 @@ public class testMasterMind {
 		m.wrong_numbers=false;
 		
 		/*Check incorrect values. Equivalent partitions (number and letters (without space),
-		number and letters (with space), numbers separated by symbols*/
+		number and letters (with space), numbers separated by symbols, negative number*/
 		mockReadParameters.colors ="32u8";
 		mockReadParameters.read_parameters(p1, m);
 		assertTrue(m.wrong_numbers);
@@ -99,6 +99,11 @@ public class testMasterMind {
 		m.wrong_numbers=false;
 		
 		mockReadParameters.colors ="1,3,5,2,0";
+		mockReadParameters.read_parameters(p1, m);
+		assertTrue(m.wrong_numbers);
+		m.wrong_numbers=false;
+		
+		mockReadParameters.colors ="-1 3 5 2 0";
 		mockReadParameters.read_parameters(p1, m);
 		assertTrue(m.wrong_numbers);
 		m.wrong_numbers=false;

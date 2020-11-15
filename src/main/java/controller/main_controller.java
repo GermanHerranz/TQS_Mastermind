@@ -3,6 +3,7 @@ package controller;
 
 import java.io.IOException;
 
+import main.main;
 import models.MasterMind;
 import models.Player;
 import view.view;
@@ -19,7 +20,7 @@ public class main_controller {
 		p2 = new Player(1);
 		v =new view();
 		v.print_info();
-		while(!find && m.numPlays>=0) {
+		while(!find) {
 			boolean play;
 			if(m.numPlays==12 && m.turn==0) {
 				m.generate_code();
@@ -53,7 +54,7 @@ public class main_controller {
 				v.print_win();
 			}
 			
-			if(m.turn==1 && m.numPlays==0 && !play) {
+			else if(m.turn==1 && m.numPlays==0 && !play) {
 				find=true;
 				v.print_lost();
 			}

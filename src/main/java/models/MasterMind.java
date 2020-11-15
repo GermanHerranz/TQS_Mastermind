@@ -61,7 +61,6 @@ public class MasterMind {
 	}
 	public boolean Player1(Player p, Player p2) {
 		boolean find=true;
-		int i=0;
 		
 		if(numPlays==12) {
 			turn(turn);
