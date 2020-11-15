@@ -489,6 +489,7 @@ public class testMasterMind {
 		Player p1 = new Player(0);
 		Player p2 = new Player(1);
 		
+		//Condition and decision coverage and equivalent partitions
 		mockRandomNumbers.array[0] = 0;
 		mockRandomNumbers.array[1] = 3;
 		mockRandomNumbers.array[2] = 5;
@@ -616,7 +617,7 @@ public class testMasterMind {
 	@Test
 	public void test_Play() {
 		
-		//**************************************** PLAY 1 - check the game finish properly and all the data is saved properly ************************************************************
+		//**************************************** PLAY 1 - check the game finishes properly and all the data is saved properly ************************************************************
 
 		MasterMind m= new MasterMind();
 		MockReadParameters mockReadParameters = new MockReadParameters();
@@ -1019,7 +1020,7 @@ public class testMasterMind {
 		
 		
 		//**************************************** PLAY 3 - check the game finish properly and all the data is saved properly ************************************************************
-		//check values limits
+		//check limit values 
 		
 		MasterMind m2= new MasterMind();
 		MockReadParameters mockReadParameters2 = new MockReadParameters();
