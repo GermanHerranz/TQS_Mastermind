@@ -64,13 +64,7 @@ public class MasterMind {
 		int i=0;
 		
 		if(numPlays==12) {
-			while(find && i<5) {
-				find=(check_parameters(code[i])); //if the color is correct return true
-				i=i+1;
-			}
-			if(find) {
-				turn(turn);
-			}
+			turn(turn);
 		}
 		else {
 			find=check_positions(p2); //return false if the player2 didn't win

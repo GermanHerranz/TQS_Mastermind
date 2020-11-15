@@ -8,6 +8,8 @@ import models.Player;
 public class MockTestGame {
 	MockRandomNumbers mRandom;
 	MockReadParameters mRead;
+	int test_array[];
+	boolean find = false;
 	
 	MockTestGame(){
 		mRandom=new MockRandomNumbers();
@@ -17,8 +19,8 @@ public class MockTestGame {
 		mRandom.array = new int[5];
 	}
 	public boolean Game(MasterMind m, Player p1, Player p2) {
-		boolean find= false;
 		Random r= new Random();
+		int results[] = new int [m.comparison.length];
 		while(!find && m.numPlays>=0) {
 			if(m.numPlays==12 && m.turn==0) {
 				m.code[0]=1;
@@ -29,7 +31,15 @@ public class MockTestGame {
 			}
 			else {
 				if(m.turn==1) {
-					mRead.colors= ""+r.nextInt(6)+" "+r.nextInt(6)+" "+r.nextInt(6)+" "+r.nextInt(6)+" "+r.nextInt(6)+"";
+					for (int i =0; i<m.comparison.length; i++) {
+						if (m.comparison[i] == 2) {
+							results[i]=p2.user_color[i];
+						}
+						else {
+							results[i] = r.nextInt(6);
+						}
+					}
+					mRead.colors= ""+results[0]+" "+results[1]+" "+results[2]+" "+results[3]+" "+results[4]+"";
 					
 					mRead.read_parameters(p2, m);
 				}

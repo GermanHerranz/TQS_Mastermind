@@ -257,82 +257,124 @@ public class testMasterMind {
         m.code[3] = 1;
         m.code[4] = 0;
         
-        mockReadParameters.colors = "3 2 5 1 0";
+        mockReadParameters.colors = "4 4 4 4 4";
         
         mockReadParameters.read_parameters(p2, m);
         
         boolean res2=m.check_positions(p2);
         assertFalse(res2);
-        int value2[] = new int[5];
-        value2[0]=0;
-        value2[1]=2;
-        value2[2]=2;
-        value2[3]=2;
-        value2[4]=2;
-        for(int i=0; i<mockReadParameters.color.length; i++) {
-			assertEquals(value2[i], m.comparison[i]);
-		}
-        
-        
-        m.code[0] = 0;
-        m.code[1] = 2;
-        m.code[2] = 5;
-        m.code[3] = 1;
-        m.code[4] = 0;
-        
-        mockReadParameters.colors ="0 0 5 1 0";
-        
-        mockReadParameters.read_parameters(p2, m);
-        
-        boolean res3=m.check_positions(p2);
-        assertFalse(res3);
-        int value3[] = new int[5];
-        value3[0]=2;
-        value3[1]=1;
-        value3[2]=2;
-        value3[3]=2;
-        value3[4]=2;
-        for(int i=0; i<mockReadParameters.color.length; i++) {
-			assertEquals(value3[i], m.comparison[i]);
-		}
-        
-        
-        m.code[0] = 0;
-        m.code[1] = 2;
-        m.code[2] = 5;
-        m.code[3] = 1;
-        m.code[4] = 0;
-        
-        mockReadParameters.colors = "0 2 0 1 0";
-       
-        mockReadParameters.read_parameters(p2, m);
-        
-        boolean res4=m.check_positions(p2);
-        assertFalse(res4);
-        int value4[] = new int[5];
-        value4[0]=2;
-        value4[1]=2;
-        value4[2]=1;
-        value4[3]=2;
-        value4[4]=2;
-        for(int i=0; i<mockReadParameters.color.length; i++) {
-			assertEquals(value4[i], m.comparison[i]);
-		}
-        
-        m.code[0] = 0;
-        m.code[1] = 2;
-        m.code[2] = 5;
-        m.code[3] = 1;
-        m.code[4] = 0;
-        
-        mockReadParameters.colors = "0 2 4 5 0";
-     
-        mockReadParameters.read_parameters(p2, m);
-        
-        boolean res5=m.check_positions(p2);
-        assertFalse(res5);
         int value5[] = new int[5];
+        value5[0]=0;
+        value5[1]=0;
+        value5[2]=0;
+        value5[3]=0;
+        value5[4]=0;
+        for(int i=0; i<mockReadParameters.color.length; i++) {
+			assertEquals(value5[i], m.comparison[i]);
+		}
+        
+        //Pairwise test
+        m.code[0]=1;
+        m.code[1]=2;
+        m.code[2]=3;
+        m.code[3]=4;
+        m.code[4]=5;
+        mockReadParameters.colors ="0 0 0 0 0";
+        mockReadParameters.read_parameters(p2, m);
+        boolean res10=m.check_positions(p2);
+        assertFalse(res10);
+        value5[0]=0;
+        value5[1]=0;
+        value5[2]=0;
+        value5[3]=0;
+        value5[4]=0;
+        for(int i=0; i<mockReadParameters.color.length; i++) {
+			assertEquals(value5[i], m.comparison[i]);
+		}
+        
+        mockReadParameters.colors ="4 3 2 1 0";
+        mockReadParameters.read_parameters(p2, m);
+        boolean res11=m.check_positions(p2);
+        assertFalse(res11);
+        value5[0]=1;
+        value5[1]=1;
+        value5[2]=1;
+        value5[3]=1;
+        value5[4]=0;
+        for(int i=0; i<mockReadParameters.color.length; i++) {
+			assertEquals(value5[i], m.comparison[i]);
+		}
+        
+        mockReadParameters.colors ="1 2 3 4 0";
+        mockReadParameters.read_parameters(p2, m);
+        boolean res12=m.check_positions(p2);
+        assertFalse(res12);
         value5[0]=2;
+        value5[1]=2;
+        value5[2]=2;
+        value5[3]=2;
+        value5[4]=0;
+        for(int i=0; i<mockReadParameters.color.length; i++) {
+			assertEquals(value5[i], m.comparison[i]);
+		}
+        
+        mockReadParameters.colors ="1 3 0 4 2";
+        mockReadParameters.read_parameters(p2, m);
+        boolean res13=m.check_positions(p2);
+        assertFalse(res13);
+        value5[0]=2;
+        value5[1]=1;
+        value5[2]=0;
+        value5[3]=2;
+        value5[4]=1;
+        for(int i=0; i<mockReadParameters.color.length; i++) {
+			assertEquals(value5[i], m.comparison[i]);
+		}
+        
+        mockReadParameters.colors ="4 0 3 1 2";
+        mockReadParameters.read_parameters(p2, m);
+        boolean res14=m.check_positions(p2);
+        assertFalse(res14);
+        value5[0]=1;
+        value5[1]=0;
+        value5[2]=2;
+        value5[3]=1;
+        value5[4]=1;
+        for(int i=0; i<mockReadParameters.color.length; i++) {
+			assertEquals(value5[i], m.comparison[i]);
+		}
+        
+        mockReadParameters.colors ="0 2 2 0 2";
+        mockReadParameters.read_parameters(p2, m);
+        boolean res15=m.check_positions(p2);
+        assertFalse(res15);
+        value5[0]=0;
+        value5[1]=2;
+        value5[2]=1;
+        value5[3]=0;
+        value5[4]=1;
+        for(int i=0; i<mockReadParameters.color.length; i++) {
+			assertEquals(value5[i], m.comparison[i]);
+		}
+        
+        mockReadParameters.colors ="0 3 3 0 5";
+        mockReadParameters.read_parameters(p2, m);
+        boolean res16=m.check_positions(p2);
+        assertFalse(res16);
+        value5[0]=0;
+        value5[1]=1;
+        value5[2]=2;
+        value5[3]=0;
+        value5[4]=2;
+        for(int i=0; i<mockReadParameters.color.length; i++) {
+			assertEquals(value5[i], m.comparison[i]);
+		}
+        
+        mockReadParameters.colors ="4 2 0 1 5";
+        mockReadParameters.read_parameters(p2, m);
+        boolean res17=m.check_positions(p2);
+        assertFalse(res17);
+        value5[0]=1;
         value5[1]=2;
         value5[2]=0;
         value5[3]=1;
@@ -341,32 +383,96 @@ public class testMasterMind {
 			assertEquals(value5[i], m.comparison[i]);
 		}
         
-        m.code[0] = 0;
-        m.code[1] = 2;
-        m.code[2] = 5;
-        m.code[3] = 1;
-        m.code[4] = 0;
-        
-        mockReadParameters.colors = "0 2 5 1 4";
-     
+        mockReadParameters.colors ="1 0 2 4 5";
         mockReadParameters.read_parameters(p2, m);
+        boolean res18=m.check_positions(p2);
+        assertFalse(res18);
+        value5[0]=2;
+        value5[1]=0;
+        value5[2]=1;
+        value5[3]=2;
+        value5[4]=2;
+        for(int i=0; i<mockReadParameters.color.length; i++) {
+			assertEquals(value5[i], m.comparison[i]);
+		}
         
-        boolean res6=m.check_positions(p2);
-        assertFalse(res6);
-        
-        
-        m.code[0] = 0;
-        m.code[1] = 2;
-        m.code[2] = 5;
-        m.code[3] = 1;
-        m.code[4] = 0;
-        
-        mockReadParameters.colors ="0 1 5 0 0";
-  
+        mockReadParameters.colors ="1 0 2 2 5";
         mockReadParameters.read_parameters(p2, m);
+        boolean res19=m.check_positions(p2);
+        assertFalse(res19);
+        value5[0]=2;
+        value5[1]=0;
+        value5[2]=1;
+        value5[3]=1;
+        value5[4]=2;
+        for(int i=0; i<mockReadParameters.color.length; i++) {
+			assertEquals(value5[i], m.comparison[i]);
+		}
         
-        boolean res7=m.check_positions(p2);
-        assertFalse(res7);
+        mockReadParameters.colors ="4 0 2 0 5";
+        mockReadParameters.read_parameters(p2, m);
+        boolean res20=m.check_positions(p2);
+        assertFalse(res20);
+        value5[0]=1;
+        value5[1]=0;
+        value5[2]=1;
+        value5[3]=0;
+        value5[4]=2;
+        for(int i=0; i<mockReadParameters.color.length; i++) {
+			assertEquals(value5[i], m.comparison[i]);
+		}
+        
+        mockReadParameters.colors ="0 0 2 2 5";
+        mockReadParameters.read_parameters(p2, m);
+        boolean res21=m.check_positions(p2);
+        assertFalse(res21);
+        value5[0]=0;
+        value5[1]=0;
+        value5[2]=1;
+        value5[3]=1;
+        value5[4]=2;
+        for(int i=0; i<mockReadParameters.color.length; i++) {
+			assertEquals(value5[i], m.comparison[i]);
+		}
+        
+        mockReadParameters.colors ="0 0 2 4 5";
+        mockReadParameters.read_parameters(p2, m);
+        boolean res22=m.check_positions(p2);
+        assertFalse(res22);
+        value5[0]=0;
+        value5[1]=0;
+        value5[2]=1;
+        value5[3]=2;
+        value5[4]=2;
+        for(int i=0; i<mockReadParameters.color.length; i++) {
+			assertEquals(value5[i], m.comparison[i]);
+		}
+        
+        mockReadParameters.colors ="4 0 2 4 5";
+        mockReadParameters.read_parameters(p2, m);
+        boolean res23=m.check_positions(p2);
+        assertFalse(res23);
+        value5[0]=1;
+        value5[1]=0;
+        value5[2]=1;
+        value5[3]=2;
+        value5[4]=2;
+        for(int i=0; i<mockReadParameters.color.length; i++) {
+			assertEquals(value5[i], m.comparison[i]);
+		}
+        
+        mockReadParameters.colors ="1 0 2 0 5";
+        mockReadParameters.read_parameters(p2, m);
+        boolean res24=m.check_positions(p2);
+        assertFalse(res24);
+        value5[0]=2;
+        value5[1]=0;
+        value5[2]=1;
+        value5[3]=0;
+        value5[4]=2;
+        for(int i=0; i<mockReadParameters.color.length; i++) {
+			assertEquals(value5[i], m.comparison[i]);
+		}
 	}
 	
 	
@@ -378,61 +484,6 @@ public class testMasterMind {
 		Player p1 = new Player(0);
 		Player p2 = new Player(1);
 		
-		//Check incorrect player1 values in each position
-		mockRandomNumbers.array = new int[5];
-		mockRandomNumbers.array[0] = 8;
-		mockRandomNumbers.array[1] = 0;
-		mockRandomNumbers.array[2] = 4;
-		mockRandomNumbers.array[3] = 1;
-		mockRandomNumbers.array[4] = 2;
-		
-		mockRandomNumbers.random_numbers(p1, m);
-		boolean res1=m.Player1(p1,p2);
-		assertFalse(res1);
-		
-		mockRandomNumbers.array = new int[5];
-		mockRandomNumbers.array[0] = 0;
-		mockRandomNumbers.array[1] = -3;
-		mockRandomNumbers.array[2] = 2;
-		mockRandomNumbers.array[3] = 2;
-		mockRandomNumbers.array[4] = 2;
-		
-		mockRandomNumbers.random_numbers(p1, m);
-		boolean res2=m.Player1(p1,p2);
-		assertFalse(res2);
-		
-		mockRandomNumbers.array = new int[5];
-		mockRandomNumbers.array[0] = 0;
-		mockRandomNumbers.array[1] = 3;
-		mockRandomNumbers.array[2] = 7;
-		mockRandomNumbers.array[3] = 2;
-		mockRandomNumbers.array[4] = 3;
-		
-		mockRandomNumbers.random_numbers(p1, m);
-		boolean res3=m.Player1(p1,p2);
-		assertFalse(res3);
-		
-		mockRandomNumbers.array[0] = 0;
-		mockRandomNumbers.array[1] = 3;
-		mockRandomNumbers.array[2] = 5;
-		mockRandomNumbers.array[3] = 6;
-		mockRandomNumbers.array[4] = 4;
-		
-		mockRandomNumbers.random_numbers(p1, m);
-		boolean res4=m.Player1(p1,p2);
-		assertFalse(res4);
-	
-		mockRandomNumbers.array[0] = 0;
-		mockRandomNumbers.array[1] = 3;
-		mockRandomNumbers.array[2] = 5;
-		mockRandomNumbers.array[3] = 0;
-		mockRandomNumbers.array[4] = 8;
-		
-		mockRandomNumbers.random_numbers(p1, m);
-		boolean res5=m.Player1(p1,p2);
-		assertFalse(res5);
-		
-		///Check incorrect player1 values in each position
 		mockRandomNumbers.array[0] = 0;
 		mockRandomNumbers.array[1] = 3;
 		mockRandomNumbers.array[2] = 5;
@@ -442,6 +493,25 @@ public class testMasterMind {
 		mockRandomNumbers.random_numbers(p1, m);
 		boolean res6=m.Player1(p1,p2);
 		assertTrue(res6);
+		
+		m.numPlays=11;
+		p2.user_color = new int [5];
+		p2.user_color[0]=1;
+		p2.user_color[1]=1;
+		p2.user_color[2]=1;
+		p2.user_color[3]=1;
+		p2.user_color[4]=1;
+		boolean res=m.Player1(p1,p2);
+		assertFalse(res);
+		
+		p2.user_color = new int [5];
+		p2.user_color[0]=0;
+		p2.user_color[1]=3;
+		p2.user_color[2]=5;
+		p2.user_color[3]=0;
+		p2.user_color[4]=4;
+		boolean res1=m.Player1(p1,p2);
+		assertTrue(res1);
 	}
 	
 	@Test
@@ -451,6 +521,7 @@ public class testMasterMind {
 		MockReadParameters mockReadParameters = new MockReadParameters();
 		Player p2 = new Player(1);
 		
+		//Check loop testing
 		mockReadParameters.colors = "8 3 4 1 2";
 		
 		mockReadParameters.read_parameters(p2, m);
@@ -1281,16 +1352,30 @@ public class testMasterMind {
 		}
         
         //Check limit value (numPlays and turn). Equivalent partitions
+        m2.turn = 0;
         m2.numPlays=13;
         boolean res327=m2.Play(p111, p222);
         assertFalse(res327);
         assertEquals(m2.numPlays, 13);
-		assertEquals(m2.turn, 1);
+		assertEquals(m2.turn, 0);
         
         m2.numPlays=-1;
         boolean res328=m2.Play(p111, p222);
         assertFalse(res328);
         assertEquals(m2.numPlays, -1);
+		assertEquals(m2.turn, 0);
+		
+		m2.turn = 0;
+		m2.numPlays=0;
+		boolean res338=m2.Play(p111, p222);
+        assertTrue(res338);
+        assertEquals(m2.numPlays, 0);
+		assertEquals(m2.turn, 1);
+		
+		m2.numPlays=0;
+		boolean res339=m2.Play(p111, p222);
+        assertFalse(res339);
+        assertEquals(m2.numPlays, 0);
 		assertEquals(m2.turn, 1);
 		
 		m2.numPlays=5;
@@ -1315,8 +1400,19 @@ public class testMasterMind {
 		MasterMind  m= new MasterMind();
 		Player p1= new Player(0);
 		Player p2= new Player(1);
+		
 		boolean res=mT.Game(m, p1, p2);
 		assertTrue(res);
+		
+		//Loop testing
+		mT.find = false;
+		m.numPlays=-1;
+		boolean res1=mT.Game(m, p1, p2);
+		assertFalse(res1);
+		
+		mT.find = true;
+		boolean res2=mT.Game(m, p1, p2);
+		assertTrue(res2);
 		
 	}
 	
