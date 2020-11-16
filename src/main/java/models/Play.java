@@ -17,12 +17,12 @@ public class Play {
         
     }
     
-    public void set_play(int[] array) {
+    public void set_play(int[] array) { //save a play
         for (int i=0; i<play.length; i++)
             play[i]=array[i];
     }
     
-    public int[] get_play() {
+    public int[] get_play() {  //returns a play
         return play;
     }
     
