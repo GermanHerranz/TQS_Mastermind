@@ -46,6 +46,7 @@ public class MasterMind {
 			    player.set_userColorPosition (i, color[i]);
 			}
 			else {
+				player.set_userColorPosition (i, 8); //save an incorrect value
 				wrong_numbers=true; //if data input is not accepted
 			}
 		}

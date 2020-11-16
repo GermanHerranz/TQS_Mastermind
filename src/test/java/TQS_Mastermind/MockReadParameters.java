@@ -22,6 +22,7 @@ public class MockReadParameters {
 				player.set_userColorPosition(i, color[i]); //save the value
 			}
 			else { //if the value is not a number or it's a negative number
+				player.set_userColorPosition(i, 8); //save an incorrect value
 				m.wrong_numbers=true;
 			}
 		}		
