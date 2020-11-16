@@ -11,7 +11,7 @@ import view.view;
 public class main_controller {
 	MasterMind m;
 	Player p1;
-	Player p2;
+	Player p2; 
 	view v;
 	
 	public void controller() throws IOException {
@@ -51,13 +51,13 @@ public class main_controller {
 				}
 			}
 			
-			if(m.turn==1 && play && m.numPlays!=12 ) { //the player 2 wins
-				find=true;
+			if(m.turn==1 && play && m.numPlays!=12 ) { //the player 2 wins and game finishes
+				find=true; //game finishes
 				v.print_win();
 			}
 			
-			else if(m.turn==1 && m.numPlays==0 && !play) { //the player 2 loses
-				find=true;
+			else if(m.turn==1 && m.numPlays==0 && !play) { //the player 2 loses and game finishes
+				find=true; //game finishes
 				v.print_lost();
 			}
 		}

@@ -5,10 +5,10 @@ public class Play {
 	int play []= {};
 	
     
-	public Play() {
-        play = new int[5];
+	public Play() { //constructor
+        play = new int[5];  //set the number of position to 5, cause there are 5 numbers in every play
         
-        play[0] = 0;
+        play[0] = 0; //initialize to 0 the positions
         play[1] = 0;
         play[2] = 0;
         play[3] = 0;
