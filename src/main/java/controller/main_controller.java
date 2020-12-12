@@ -4,19 +4,35 @@ package controller;
 import java.io.IOException;
 
 import main.main;
+import models.InterfaceCode;
 import models.MasterMind;
 import models.Player;
+import models.interfaceKeyboard;
+import models.mockCode1;
+import models.mockCode2;
+import models.mockCode3;
+import models.mockCode4;
+import models.mockKeyboard;
 import view.view;
 
 public class main_controller {
-	MasterMind m;
+	InterfaceCode m;
 	Player p1;
 	Player p2; 
 	view v;
+	interfaceKeyboard k = new mockKeyboard();
 	
-	public void controller() throws IOException {
+	public main_controller() { 
+		k.addValue("0 0 0 0 0"); // Entradas del keyboard
+		k.addValue("1 2 3 4 5");
+		k.addValue("2 2 5 3 2");
+		k.addValue("2 2 5 3 3");
+		k.addValue("5 4 3 2 1");
+	}
+	
+		public void controller() throws IOException {
 		boolean find = false;
-		m = new MasterMind();
+		m = new mockCode4(); // Cambiar mock para diferentes partidas
 		p1 = new Player(0);
 		p2 = new Player(1);
 		v = new view();
@@ -25,38 +41,39 @@ public class main_controller {
 		while(!find) { //while there's plays left and the player 2 hasn't win
 			boolean play;
 			
-			if(m.numPlays==12 && m.turn==0) { //generation of the player 1 code, if it is player 1 turn and its first play
+			if(m.getNumPlays()==12 && m.getTurn()==0) { //generation of the player 1 code, if it is player 1 turn and its first play
 				m.generate_code();
+				System.out.println(m.getCode());
 			}
 			else {
-				if(m.turn==1) { //read inputs if it's player 2 turn
+				if(m.getTurn()==1) { //read inputs if it's player 2 turn
 					v.print_message_insert();
-					m.read_parameters(p2);
+					m.read_parameters(p2, k);
 				}
 			}
 			
 			play = m.Play(p1, p2);
 			
-			if(m.wrong_numbers) { //print message of error if the input values were wrong
+			if(m.getWrongNumbers()) { //print message of error if the input values were wrong
 				v.print_message_wrong_combination();
-				m.wrong_numbers=false; //set the value to false
+				m.setWrongNumbers(false); //set the value to false
 			}
-			else if(m.wrong_size){ //print message of error if the input size was wrong
+			else if(m.getWrongSize()){ //print message of error if the input size was wrong
 				v.print_message_wrong_size();
-				m.wrong_size=false; //set the value to false
+				m.setWrongSize(false); //set the value to false
 			}
 			else {
-				if(m.turn==1 && m.numPlays!=12) { //prints the board
+				if(m.getTurn()==1 && m.getNumPlays()!=12) { //prints the board
 					v.show_board(p1, p2, m);
 				}
 			}
 			
-			if(m.turn==1 && play && m.numPlays!=12 ) { //the player 2 wins and game finishes
+			if(m.getTurn()==1 && play && m.getNumPlays()!=12 ) { //the player 2 wins and game finishes
 				find=true; //game finishes
 				v.print_win();
 			}
 			
-			else if(m.turn==1 && m.numPlays==0 && !play) { //the player 2 loses and game finishes
+			else if(m.getTurn()==1 && m.getNumPlays()==0 && !play) { //the player 2 loses and game finishes
 				find=true; //game finishes
 				v.print_lost();
 			}

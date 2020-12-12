@@ -9,7 +9,7 @@ import com.google.common.primitives.Ints;
 
 
 
-public class MasterMind {
+public class MasterMind implements InterfaceCode{
     int colors []= {0, 1, 2, 3, 4, 5}; //set the possible colors
 	public int turn=0; //in the first play the turn if for player1
 	public int numPlays; //this variable has the number of plays that are left
@@ -32,7 +32,10 @@ public class MasterMind {
 		comparison[3] = 0;
 		comparison[4] = 0;
 	}
-	public void read_parameters(Player player) throws IOException { //read the data input written by player2
+	
+	public int getNum() {return this.num;}
+	
+	public void read_parameters(Player player, interfaceKeyboard k) throws IOException { //read the data input written by player2
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String s_color = br.readLine(); //we read only one line
@@ -56,7 +59,7 @@ public class MasterMind {
 	public int[] generate_code() { //generate the random code for player1
 		for(int i=0; i<5; i++) {
 			Random r= new Random();
-			code[i]=r.nextInt(6); 
+			code[i]=i; 
 		}
 		return code;
 	}
@@ -169,5 +172,52 @@ public class MasterMind {
         }
         
         return same; //if player2 guessed the code then same is true
+	}
+	
+
+	@Override
+	public int[] getColors() {
+		return this.colors;
+	}
+
+	@Override
+	public int getTurn() {
+		return this.turn;
+	}
+
+	@Override
+	public int getNumPlays() {
+		return this.numPlays;
+	}
+
+	@Override
+	public int[] getComparison() {
+		return this.comparison;
+	}
+
+	@Override
+	public int[] getCode() {
+		return this.code;
+	}
+
+	@Override
+	public boolean getWrongNumbers() {
+		return this.wrong_numbers;
+	}
+
+	@Override
+	public boolean getWrongSize() {
+		return this.wrong_size;
+	}
+
+	@Override
+	public void setWrongNumbers(boolean b) {
+		this.wrong_numbers = b;
+	}
+
+	@Override
+	public void setWrongSize(boolean b) {
+		this.wrong_size = b;
+		
 	}
 }

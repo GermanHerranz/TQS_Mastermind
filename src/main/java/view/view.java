@@ -1,14 +1,15 @@
 package view;
 
+import models.InterfaceCode;
 import models.MasterMind;
 import models.Player;
 
 public class view {
 	String board= "--------------------------------------------"; //separator
 	
-	public void show_board(Player p1, Player p2, MasterMind m) { //print the plays
+	public void show_board(Player p1, Player p2, InterfaceCode m) { //print the plays
 		System.out.println(board);
-		for(int i=0; i<=m.num; i++) {
+		for(int i=0; i<=m.getNum(); i++) {
 			int p1_play[]=p1.get_saved_play(i);
 			int p2_play[]=p2.get_saved_play(i);
 			for(int j=0; j<p2_play.length; j++) { //print all the player2 plays
