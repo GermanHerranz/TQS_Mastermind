@@ -15,20 +15,23 @@ import models.Player;
 import models.interfaceKeyboard;
 import view.view;
 
-public class mockMainController {
+public class mockMainController2 {
 	InterfaceCode m;
 	Player p1;
 	Player p2; 
 	view v;
 	interfaceKeyboard k = new mockKeyboard();
 	
-	public mockMainController() { 
-		k.addValue("0 0 0 0 0"); // Entradas del keyboard
+	public mockMainController2() { 
+		k.addValue("0 0 0 0"); // Entradas del keyboard
+		k.addValue("2 2 5 3 3 5");
+		k.addValue("5 4 3 2 1");
+		k.addValue("1 2 3 4 5");
 	}
 	
 		public void controller() throws IOException {
 		boolean find = false;
-		m = new mockCode1(); // Cambiar mock para diferentes partidas
+		m = new mockCode2(); // Cambiar mock para diferentes partidas
 		p1 = new Player(0);
 		p2 = new Player(1);
 		v = new view();
