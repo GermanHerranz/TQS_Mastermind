@@ -2,17 +2,12 @@ package controller;
 
 
 import java.io.IOException;
-
 import main.main;
 import models.InterfaceCode;
+import models.Keyboard;
 import models.MasterMind;
 import models.Player;
 import models.interfaceKeyboard;
-import models.mockCode1;
-import models.mockCode2;
-import models.mockCode3;
-import models.mockCode4;
-import models.mockKeyboard;
 import view.view;
 
 public class main_controller {
@@ -20,19 +15,12 @@ public class main_controller {
 	Player p1;
 	Player p2; 
 	view v;
-	interfaceKeyboard k = new mockKeyboard();
-	
-	public main_controller() { 
-		k.addValue("0 0 0 0 0"); // Entradas del keyboard
-		k.addValue("1 2 3 4 5");
-		k.addValue("2 2 5 3 2");
-		k.addValue("2 2 5 3 3");
-		k.addValue("5 4 3 2 1");
-	}
+	interfaceKeyboard k = new Keyboard();
+
 	
 		public void controller() throws IOException {
 		boolean find = false;
-		m = new mockCode4(); // Cambiar mock para diferentes partidas
+		m = new MasterMind(); // Cambiar mock para diferentes partidas
 		p1 = new Player(0);
 		p2 = new Player(1);
 		v = new view();
@@ -43,7 +31,6 @@ public class main_controller {
 			
 			if(m.getNumPlays()==12 && m.getTurn()==0) { //generation of the player 1 code, if it is player 1 turn and its first play
 				m.generate_code();
-				System.out.println(m.getCode());
 			}
 			else {
 				if(m.getTurn()==1) { //read inputs if it's player 2 turn

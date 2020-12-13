@@ -59,7 +59,7 @@ public class MasterMind implements InterfaceCode{
 	public int[] generate_code() { //generate the random code for player1
 		for(int i=0; i<5; i++) {
 			Random r= new Random();
-			code[i]=i; 
+			code[i]=r.nextInt(6); 
 		}
 		return code;
 	}
